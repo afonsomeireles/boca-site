@@ -24,10 +24,17 @@ html, body {
   height: auto;
 }
 
-/* 3. Site main background for everything below the hero */
 .site-main {
-  background: url('images/background.png') center/cover no-repeat;
-  padding: 4rem 2rem;
+  /* Use the full‑bleed bg but align its bottom edge */
+  background-image:    url('images/background.png');
+  background-position: bottom center;  /* <-- bottom‑aligned */
+  background-size:     cover;          /* <-- always fill width */
+  background-repeat:   no-repeat;
+  
+  /* Make sure the container is tall enough to hold your footer overlay */
+  min-height: 50vh;    /* adjust as needed (e.g. 100vh for full‑screen) */
+  padding:    4rem 2rem;
+  position:   relative; /* if your footer overlay is absolute‑positioned inside */
 }
 
 /* 4. Navbar styling */
