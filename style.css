@@ -12,13 +12,16 @@ html, body {
 }
 
 .hero {
-  /* instead of cover… */
-  background-size: contain;          /* scale so whole image fits */
-  background-position: center top;   /* adjust as needed */
-  background-repeat: no-repeat;
-  /* remove fixed height so container grows with image */
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* the IMG will scale to full width and keep its aspect */
+.hero-img {
+  display: block;
+  width: 100%;
   height: auto;
-  min-height: 60vh;                  /* pick a minimum if you still want “hero” presence */
 }
 
 /* 3. Site main background for everything below the hero */
