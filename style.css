@@ -42,19 +42,23 @@ html, body {
   font-weight: bold;
 }
 
-/* Bio text overlay */
-.bio {
+.bio-container {
   position: absolute;
   bottom: 20%;
   left: 10%;
-  max-width: 40%;
+  width: 40%;          /* adjust to taste */
+  aspect-ratio: 4/3;   /* keeps a box shape—you can remove or tweak */
+  background: url('images/band-photo.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+/* 2) Semi‑opaque overlay behind text for readability */
+.bio-text {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 1rem;
   color: #fff;
-}
-.bio h1 {
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
-}
-.bio p {
-  font-size: 1.2rem;
-  line-height: 1.4;
+  border-radius: 4px;
 }
