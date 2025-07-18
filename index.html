@@ -11,28 +11,41 @@
   />
 </head>
 <body>
+  <header class="navbar">
+    <img src="images/boca_logo.jpg" alt="BOCA Logo" class="logo" />
+
+    <nav>
+      <ul class="nav-list">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="gigs.html">Gig Schedule</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="merch.html">Merch</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
   <header class="hero">
     <img
       src="images/band_photo.jpg"
       alt="BOCA band photo"
       class="hero-img"
     />
-
-    <div class="navbar">
-      <img src="images/boca_logo.jpg" alt="BOCA Logo" class="logo" />
-
-      <nav>
-        <ul class="nav-list">
-          <li><a href="home.html">Home</a></li>
-          <li><a href="gigs.html">Gig Schedule</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="merch.html">Merch</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
+    <div class="bio-container">
+      <div class="bio-text">
+        <h1>BOCA</h1>
+        <p>Boca Bio.</p>
+      </div>
     </div>
   </header>
   <main class="site-main">
   </main>
+  <script>
+    // sticky → transparent on scroll
+    const nav = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 0);
+    });
+  </script>
 </body>
 </html>
