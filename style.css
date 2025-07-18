@@ -11,13 +11,14 @@ html, body {
   padding: 0;
 }
 
-/* 2. Full‑bleed hero section */
 .hero {
-  position: relative;
-  width: 100vw;
-  height: 100vh; /* adjust as needed */
-  overflow: hidden;
-  background: url('images/band_photo.jpg') center/cover no-repeat;
+  /* instead of cover… */
+  background-size: contain;          /* scale so whole image fits */
+  background-position: center top;   /* adjust as needed */
+  background-repeat: no-repeat;
+  /* remove fixed height so container grows with image */
+  height: auto;
+  min-height: 60vh;                  /* pick a minimum if you still want “hero” presence */
 }
 
 /* 3. Site main background for everything below the hero */
