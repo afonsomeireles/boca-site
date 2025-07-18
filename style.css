@@ -68,6 +68,7 @@ html, body {
   text-transform: lowercase;
   letter-spacing: 0.05em;
   text-decoration: none;
+  font-size: 1.25rem;
 }
 
 .navbar nav .nav-list a:hover {
