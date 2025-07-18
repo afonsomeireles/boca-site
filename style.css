@@ -43,15 +43,19 @@ html, body {
 .logo {
   height: 50px;
 }
-.nav-list {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-}
+/* Navbar links in Chicle bold, custom teal color */
+nav,
 .nav-list a {
-  text-decoration: none;
-  color: #fff;
-  font-weight: bold;
+  font-family: 'Chicle', cursive;
+  font-weight: bold;           /* synthesize a bolder look */
+  color: #1D6980;               /* your chosen shade */
+  text-transform: lowercase;    /* optional, for extra punch */
+  letter-spacing: 0.05em;       /* optional, for readability */
+}
+
+/* On hover, you might want a little feedback: */
+.nav-list a:hover {
+  opacity: 0.8;
 }
 
 .bio-container {
