@@ -1,4 +1,6 @@
 /* style.css */
+
+/* 1. Global reset */
 * {
   margin: 0;
   padding: 0;
@@ -9,27 +11,22 @@ html, body {
   padding: 0;
 }
 
-.site-main {
-  background: url('images/background.png') center/cover no-repeat;
-  /* if you want it to stay fixed behind content: */
-  /* background-attachment: fixed; */
-  padding: 4rem 2rem;      /* give your sections some breathing room */
-}
-
-/* 1) Hero takes 100% of viewport width & height */
+/* 2. Full‑bleed hero section */
 .hero {
   position: relative;
   width: 100vw;
-  height: 100vh;             /* adjust as needed */
+  height: 100vh; /* adjust as needed */
   overflow: hidden;
-  position: relative;
-}
-
-.hero {
   background: url('images/band_photo.jpg') center/cover no-repeat;
 }
 
-/* Top bar: logo left, nav right */
+/* 3. Site main background for everything below the hero */
+.site-main {
+  background: url('images/background.png') center/cover no-repeat;
+  padding: 4rem 2rem;
+}
+
+/* 4. Navbar styling */
 .navbar {
   position: absolute;
   top: 0;
@@ -39,35 +36,54 @@ html, body {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: #fff;     /* ← white background */
-  z-index: 10;                /* ensure it sits on top of the hero image */
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 10;
 }
+
 .logo {
   height: 50px;
 }
-/* Navbar links in Chicle bold, custom teal color */
-nav,
-.nav-list a {
-  font-family: 'Chicle', cursive;
-  font-weight: bold;           /* synthesize a bolder look */
-  color: #1D6980;               /* your chosen shade */
-  text-transform: lowercase;    /* optional, for extra punch */
-  letter-spacing: 0.05em;       /* optional, for readability */
+
+/* 5. Nav list: horizontal, no bullets */
+.navbar nav .nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
 }
 
-/* On hover, you might want a little feedback: */
-.nav-list a:hover {
+.navbar nav .nav-list li {
+  margin: 0;
+  padding: 0;
+}
+
+/* 6. Nav links: Chicle, bold, custom teal, no underline */
+.navbar nav .nav-list a {
+  font-family: 'Chicle', cursive;
+  font-weight: bold;
+  color: #1D6980;
+  text-transform: lowercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+}
+
+.navbar nav .nav-list a:hover {
   opacity: 0.8;
 }
 
+/* 7. Bio container with semi‑transparent overlay */
 .bio-container {
   position: absolute;
   bottom: 20%;
   left: 10%;
-  /* no width limit here—bio text box will size to its content */
 }
+
 .bio-text {
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   padding: 1rem;
   color: #fff;
+  border-radius: 4px;
 }
