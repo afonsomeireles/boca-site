@@ -9,12 +9,20 @@ html, body {
   padding: 0;
 }
 
+.site-main {
+  background: url('images/background.png') center/cover no-repeat;
+  /* if you want it to stay fixed behind content: */
+  /* background-attachment: fixed; */
+  padding: 4rem 2rem;      /* give your sections some breathing room */
+}
+
 /* 1) Hero takes 100% of viewport width & height */
 .hero {
   position: relative;
   width: 100vw;
   height: 100vh;             /* adjust as needed */
   overflow: hidden;
+  position: relative;
 }
 
 .hero {
