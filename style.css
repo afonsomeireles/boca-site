@@ -160,6 +160,13 @@ body {
   color: #1D6980;
 }
 
+.navbar nav .nav-list a:active,
+.navbar nav .nav-list a:focus,
+.mobile-nav-list a:active,
+.mobile-nav-list a:focus {
+  color: #1D6980;
+}
+
 /* 12. Responsive breakpoint (mobile) */
 @media (max-width: 992px) {
   /* remove side padding */
