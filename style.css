@@ -217,7 +217,8 @@ body::before {
   max-width: 900px;   /* never wider than this */
   width: 100%;        /* but fill smaller viewports */
   margin: 0 auto;     /* center on larger screens */
-  padding: 4rem 2rem; /* your existing padding */
+  padding: 6rem 2rem 4rem;
+  position: relative;
 }
 
 /* 1. BAND INTRO: fixed 600px on desktop */
