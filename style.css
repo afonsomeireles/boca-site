@@ -150,7 +150,7 @@ body::before {
 .social-footer {
   position: static;     /* let it flow naturally */
   width: 100%;          /* optional, can be omitted for static */
-  padding: 2rem 0;      /* 2rem top & bottom padding */
+  padding: 2.2rem 0;      /* 2rem top & bottom padding */
   margin-top: 2rem;     /* extra gap above the footer */
   text-align: center;
   background: none;     /* keep it transparent */
@@ -247,6 +247,36 @@ body::before {
   display: block;
 }
 
+/* — CONTACT US — */
+.contact-us {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.contact-us h2 {
+  font-family: 'Chicle', cursive;
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 2rem;
+}
+
+/* the dark, semi‑transparent “card” */
+.contact-card {
+  max-width: 900px;
+  margin: 0 auto;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+.contact-card p {
+  font-family: 'Chicle', cursive;
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
 /* 12. Responsive tweaks */
 @media (max-width: 992px) {
   .navbar { padding: 1rem; }
@@ -263,4 +293,17 @@ body::before {
     padding: 0 1rem;
   }
   .stream-us h2 { font-size: 2.25rem; margin-bottom: 1.5rem; }
+  .contact-us {
+    padding: 2rem 1rem;
+  }
+  .contact-us h2 {
+    font-size: 2.25rem;
+    margin-bottom: 1.5rem;
+  }
+  .contact-card {
+    padding: 1.5rem;
+  }
+  .contact-card p {
+    font-size: 1rem;
+  }
 }
