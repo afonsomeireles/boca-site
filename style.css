@@ -214,7 +214,10 @@ body::before {
 
 /* ensure page content doesn’t run under the footer */
 .site-main {
-  padding-bottom: 4rem;  /* at least the height of the footer */
+  max-width: 900px;   /* never wider than this */
+  width: 100%;        /* but fill smaller viewports */
+  margin: 0 auto;     /* center on larger screens */
+  padding: 4rem 2rem; /* your existing padding */
 }
 
 /* 1. BAND INTRO: fixed 600px on desktop */
@@ -231,7 +234,7 @@ body::before {
 /* 2. IMAGE inside intro takes full container width */
 .band-photo {
   width: 100%;
-  max-width: 600px;       /* cap how big the photo can get */
+  max-width: 700px;       /* cap how big the photo can get */
   border-radius: 12px;
   display: block;
 }
@@ -306,5 +309,48 @@ body::before {
 @media (max-width: 700px) {
   .logo {
     height: 50px; 
+  }
+}
+
+/* STREAM US – “card” style wrapper around your embed */
+.stream-us {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+.stream-us h2 {
+  font-family: 'Chicle', cursive;
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 2rem;
+}
+
+/* the “card” around the iframe */
+.spotify-card {
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.spotify-card iframe {
+  width: 100%;
+  height: 352px;   /* match your embed’s height */
+  border: none;
+  display: block;
+}
+
+
+/* mobile tweak: shorter height & tighter padding */
+@media (max-width: 600px) {
+  .stream-us {
+    padding: 2rem 1rem;
+  }
+  .stream-us h2 {
+    font-size: 2.25rem;
+    margin-bottom: 1.5rem;
+  }
+  .spotify-card iframe {
+    height: 260px;
   }
 }
