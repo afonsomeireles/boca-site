@@ -27,7 +27,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 1rem 4rem;
-  background-color: transparent;            /* start fully transparent */
+  background-color: transparent;
   transition: background-color 0.3s ease,
               backdrop-filter 0.3s ease;
   z-index: 1000;
@@ -61,22 +61,22 @@ body {
   font-family: 'Chicle', cursive;
   font-weight: bold;
   font-size: 2rem;
-  color: #fff;                               /* white by default */
+  color: #fff;
   text-transform: lowercase;
   letter-spacing: 0.05em;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 .navbar nav .nav-list a:hover {
-  color: #1D6980;                            /* teal on hover */
+  color: #1D6980;
 }
 
 /* 8. After scroll: switch link colors */
 .navbar.scrolled nav .nav-list a {
-  color: #1D6980;                            /* teal once bg is white */
+  color: #1D6980;
 }
 .navbar.scrolled nav .nav-list a:hover {
-  color: #fff;                               /* white on hover when scrolled */
+  color: #fff;
 }
 
 /* 9. Main content wrapper */
@@ -86,25 +86,82 @@ body {
   position: relative;
 }
 
-/* 10. (Optional) Hero & bio if you re‑add them later */
-.hero {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
+/* 10. Mobile: hamburger toggle */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
 }
-.hero-img {
+.nav-toggle span {
   display: block;
-  width: 100%;
-  height: auto;
+  width: 24px;
+  height: 3px;
+  background: #fff;
 }
-.bio-container {
+
+/* 11. Mobile full‑screen menu overlay */
+.mobile-menu {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 2000;
+}
+.mobile-menu.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.mobile-menu-close {
   position: absolute;
-  bottom: 20%;
-  left: 10%;
-}
-.bio-text {
-  background: rgba(0, 0, 0, 0.6);
-  padding: 1rem;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 2rem;
   color: #fff;
-  border-radius: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.mobile-nav-list {
+  list-style: none;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.mobile-nav-list a {
+  font-family: 'Chicle', cursive;
+  font-size: 2.5rem;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.mobile-nav-list a:hover {
+  color: #1D6980;
+}
+
+/* 12. Responsive breakpoint (mobile) */
+@media (max-width: 768px) {
+  /* remove side padding */
+  .navbar {
+    padding: 1rem 1rem;
+  }
+  /* hide desktop links, show toggle */
+  .navbar nav {
+    display: none;
+  }
+  .nav-toggle {
+    display: flex;
+  }
 }
