@@ -200,7 +200,7 @@ body {
 
 .social-footer {
   position: fixed;
-  bottom: 2rem;
+  bottom: 2.1rem;
   left: 0;
   width: 100%;
   padding: 0.75rem 0;
@@ -213,7 +213,7 @@ body {
 .social-list {
   list-style: none;
   display: inline-flex;
-  gap: 1rem;
+  gap: 2rem;
   margin: 0;
   padding: 0;
 }
@@ -227,7 +227,6 @@ body {
   color: #1877F2;
 }
 .social-list i.fa-instagram:hover {
-
   color: #E4405F;  
 }
 .social-list i.fa-spotify:hover {
