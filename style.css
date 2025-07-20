@@ -190,7 +190,7 @@ body {
 
 .social-footer {
   position: fixed;
-  bottom: 0;
+  bottom: 4rem;
   left: 0;
   width: 100%;
   padding: 0.75rem 0;
@@ -203,7 +203,7 @@ body {
 .social-list {
   list-style: none;
   display: inline-flex;
-  gap: 2rem;
+  gap: 1rem;
   margin: 0;
   padding: 0;
 }
@@ -213,9 +213,18 @@ body {
   color: #fff;                /* white by default */
   transition: color 0.2s ease;
 }
-.social-list a:hover i,
-.social-list a:focus i {
-  color: #1D6980;             /* your teal on hover/tap */
+.social-list i.fa-facebook-f:hover {
+  color: #1877F2;
+}
+.social-list i.fa-instagram:hover {
+
+  color: #E4405F;  
+}
+.social-list i.fa-spotify:hover {
+  color: #1DB954;
+}
+.social-list i.fa-youtube:hover {
+  color: #FF0000;
 }
 
 /* ensure page content doesn’t run under the footer */
