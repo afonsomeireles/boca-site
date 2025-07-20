@@ -10,13 +10,20 @@ html, body {
   height: 100%;
 }
 
-/* 2. Fixed, full‑height page background */
 body {
-  background-image:    url('images/textured_background.png');
-  background-repeat:   no-repeat;
-  background-position: center center;
-  background-attachment: fixed;
-  background-size:     auto 100vh;
+  background: none !important;
+}
+
+/* 2. Create a fixed, full‑viewport pseudo‑element */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('images/textured_background.png') center center/cover no-repeat;
+  z-index: -1;         
+  pointer-events: none; 
 }
 
 /* 3. Fixed navbar */
