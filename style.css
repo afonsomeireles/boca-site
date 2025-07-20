@@ -164,7 +164,7 @@ body {
 @media (max-width: 992px) {
   /* remove side padding */
   .navbar {
-    padding: 0rem 1rem;
+    padding: 1rem 1rem;
   }
   /* hide desktop links, show toggle */
   .navbar nav {
