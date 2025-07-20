@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BOCA - Coming Soon</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Chicle&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- NAVBAR (same as index.html) -->
+  <header class="navbar">
+    <img src="images/boca_logo_transparent.png" alt="BOCA Logo" class="logo" />
+    <nav>
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gigs.html">Gig Schedule</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="merch.html">Merch</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </header>
+
+  <main class="site-main">
+    <h1 style="text-align:center; margin-top:10rem; font-family:'Chicle',cursive;">Coming Soon :)</h1>
+  </main>
+
+  <!-- Scripts (same as index.js) -->
+  <script>
+    const nav = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 0);
+    });
+    const toggle = document.querySelector('.nav-toggle');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const closeBtn = document.querySelector('.mobile-menu-close');
+    toggle.addEventListener('click', () => {
+      mobileMenu.setAttribute('aria-hidden', 'false'); mobileMenu.classList.add('open');
+    });
+    closeBtn.addEventListener('click', () => {
+      mobileMenu.setAttribute('aria-hidden', 'true'); mobileMenu.classList.remove('open');
+    });
+  </script>
+</body>
+</html>
