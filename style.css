@@ -194,7 +194,7 @@ body {
   left: 0;
   width: 100%;
   padding: 0.75rem 0;
-  background: rgba(0, 0, 0, 0.3);  /* light tint so they stand out */
+  background: rgba(0, 0, 0, 0);  /* light tint so they stand out */
   text-align: center;
   z-index: 1500;                    /* above most other content */
 }
@@ -208,14 +208,14 @@ body {
   padding: 0;
 }
 
-/* icon sizing & hover effect */
-.social-list a img {
-  width: 32px;
-  height: 32px;
-  transition: opacity 0.2s ease;
+.social-list a i {
+  font-size: 2rem;            /* adjust this for larger/smaller icons */
+  color: #fff;                /* white by default */
+  transition: color 0.2s ease;
 }
-.social-list a:hover img {
-  opacity: 0.7;
+.social-list a:hover i,
+.social-list a:focus i {
+  color: #1D6980;             /* your teal on hover/tap */
 }
 
 /* ensure page content doesn’t run under the footer */
