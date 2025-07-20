@@ -167,44 +167,6 @@ body {
   color: #1D6980;
 }
 
-/* 12. Responsive breakpoint (mobile) */
-@media (max-width: 992px) {
-  /* remove side padding */
-  .navbar {
-    padding: 1rem 1rem;
-  }
-  /* hide desktop links, show toggle */
-  .navbar nav {
-    display: none;
-  }
-  .nav-toggle {
-    display: flex;
-  }
-  body {
-    /* allow the background to scroll with the content */
-    background-attachment: scroll !important;
-
-    /* cover the viewport, cropping only left/right */
-    background-size: cover !important;
-
-    /* center the image fully in both axes */
-    background-position: center center !important;
-  }
-  .social-footer {
-    bottom: 0.5rem;
-    padding: 0.5rem 0; /* was 0.75rem; less top/bottom padding */
-  }
-  .social-list {
-    gap: 1rem;
-  }
-}
-
-@media (max-width: 700px) {
-  .logo {
-    height: 50px; 
-  }
-}
-
 .social-footer {
   position: fixed;
   bottom: 2.1rem;
@@ -246,4 +208,41 @@ body {
 /* ensure page content doesn’t run under the footer */
 .site-main {
   padding-bottom: 4rem;  /* at least the height of the footer */
+}
+
+@media (max-width: 992px) {
+  /* remove side padding */
+  .navbar {
+    padding: 1rem 1rem;
+  }
+  /* hide desktop links, show toggle */
+  .navbar nav {
+    display: none;
+  }
+  .nav-toggle {
+    display: flex;
+  }
+  body {
+    /* allow the background to scroll with the content */
+    background-attachment: scroll !important;
+
+    /* cover the viewport, cropping only left/right */
+    background-size: cover !important;
+
+    /* center the image fully in both axes */
+    background-position: center center !important;
+  }
+  .social-footer {
+    bottom: 0.5rem;
+    padding: 0.5rem 0; /* was 0.75rem; less top/bottom padding */
+  }
+  .social-list {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .logo {
+    height: 50px; 
+  }
 }
