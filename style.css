@@ -224,7 +224,7 @@ body {
 /* 2. IMAGE inside intro takes full container width */
 .band-photo {
   width: 100%;
-  max-width: 300px;       /* cap how big the photo can get */
+  max-width: 600px;       /* cap how big the photo can get */
   border-radius: 12px;
   display: block;
 }
