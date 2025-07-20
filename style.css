@@ -263,7 +263,5 @@ body::before {
   .stream-us {
     padding: 0 1rem;
   }
-  .band-photo { max-width: 240px; }
   .stream-us h2 { font-size: 2.25rem; margin-bottom: 1.5rem; }
-  .spotify-card iframe { height: 260px; }
 }
