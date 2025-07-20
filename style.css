@@ -187,3 +187,38 @@ body {
     height: 50px; 
   }
 }
+
+.social-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.75rem 0;
+  background: rgba(0, 0, 0, 0.3);  /* light tint so they stand out */
+  text-align: center;
+  z-index: 1500;                    /* above most other content */
+}
+
+/* horizontal list, gap between icons */
+.social-list {
+  list-style: none;
+  display: inline-flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+/* icon sizing & hover effect */
+.social-list a img {
+  width: 32px;
+  height: 32px;
+  transition: opacity 0.2s ease;
+}
+.social-list a:hover img {
+  opacity: 0.7;
+}
+
+/* ensure page content doesn’t run under the footer */
+.site-main {
+  padding-bottom: 4rem;  /* at least the height of the footer */
+}
