@@ -86,7 +86,7 @@ body::before {
   color: #C42026;
 }
 .navbar.scrolled nav .nav-list a:hover {
-  color: #fff;
+  color: #1E1E1E;
 }
 
 /* 6. Mobile hamburger */
