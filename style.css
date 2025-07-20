@@ -104,6 +104,14 @@ body {
   border-radius: 3px;
 }
 
+.navbar.scrolled .nav-toggle span {
+  background: #1D6980;
+}
+
+.navbar.scrolled .nav-toggle:hover span {
+  background: #fff;
+}
+
 /* 11. Mobile full‑screen menu overlay */
 .mobile-menu {
   position: fixed;
