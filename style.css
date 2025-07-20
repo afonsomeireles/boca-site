@@ -48,6 +48,19 @@ body::before {
   height: 70px;
 }
 
+/* hide the dark logo by default */
+.logo--dark {
+  display: none;
+}
+
+/* once the navbar is scrolled… */
+.navbar.scrolled .logo--light {
+  display: none;   /* hide white logo */
+}
+.navbar.scrolled .logo--dark {
+  display: block;  /* show black logo */
+}
+
 /* 5. Desktop nav links */
 .navbar nav .nav-list {
   display: flex;
