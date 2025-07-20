@@ -180,6 +180,16 @@ body {
   .nav-toggle {
     display: flex;
   }
+  body {
+    /* allow the background to scroll with the content */
+    background-attachment: scroll !important;
+
+    /* cover the viewport, cropping only left/right */
+    background-size: cover !important;
+
+    /* center the image fully in both axes */
+    background-position: center center !important;
+  }
 }
 
 @media (max-width: 700px) {
