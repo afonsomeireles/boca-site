@@ -190,6 +190,13 @@ body {
     /* center the image fully in both axes */
     background-position: center center !important;
   }
+  .social-footer {
+    bottom: 1rem;
+    padding: 0.5rem 0; /* was 0.75rem; less top/bottom padding */
+  }
+  .social-list {
+    gap: 1rem;
+  }
 }
 
 @media (max-width: 700px) {
