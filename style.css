@@ -210,6 +210,43 @@ body {
   padding-bottom: 4rem;  /* at least the height of the footer */
 }
 
+.band-intro {
+  max-width: 800px;       /* limits how wide the section can grow */
+  width: 90%;             /* shrinks nicely on smaller screens */
+  margin: 4rem auto;      /* space above/below, centered horizontally */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;            /* space between image and text box */
+}
+
+.band-photo {
+  width: 100%;            /* fills the .band-intro container */
+  border-radius: 12px;    /* smooth rounded corners */
+  display: block;
+}
+
+.band-info {
+  width: 100%;            /* same width as photo */
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.band-info h2 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  color: #1D6980;         /* your accent teal */
+}
+
+.band-info p {
+  font-weight: 300;           
+  line-height: 1.6;
+  color: #333;
+}
+
 @media (max-width: 992px) {
   /* remove side padding */
   .navbar {
