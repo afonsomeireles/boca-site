@@ -10,11 +10,10 @@ html, body {
   height: 100%;
 }
 
+/* 2. Fixed, full‑viewport background via pseudo-element */
 body {
   background: none !important;
 }
-
-/* 2. Create a fixed, full‑viewport pseudo‑element */
 body::before {
   content: "";
   position: fixed;
@@ -22,11 +21,11 @@ body::before {
   width: 100vw;
   height: 100vh;
   background: url('images/textured_background.png') center center/cover no-repeat;
-  z-index: -1;         
-  pointer-events: none; 
+  z-index: -1;
+  pointer-events: none;
 }
 
-/* 3. Fixed navbar */
+/* 3. Navbar */
 .navbar {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -35,35 +34,27 @@ body::before {
   justify-content: space-between;
   padding: 1rem 4rem;
   background-color: transparent;
-  transition: background-color 0.3s ease,
-              backdrop-filter 0.3s ease;
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
   z-index: 1000;
 }
-
-/* 4. Navbar on scroll */
+/* on scroll */
 .navbar.scrolled {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255,255,255,0.8);
   backdrop-filter: blur(10px);
 }
 
-/* 5. Logo */
+/* 4. Logo */
 .logo {
   height: 70px;
 }
 
-/* 6. Nav list layout */
+/* 5. Desktop nav links */
 .navbar nav .nav-list {
   display: flex;
   list-style: none;
   gap: 1.5rem;
   align-items: center;
 }
-.navbar nav .nav-list li {
-  margin: 0;
-  padding: 0;
-}
-
-/* 7. Nav link styling */
 .navbar nav .nav-list a {
   font-family: 'Chicle', cursive;
   font-weight: bold;
@@ -77,8 +68,7 @@ body::before {
 .navbar nav .nav-list a:hover {
   color: #1D6980;
 }
-
-/* 8. After scroll: switch link colors */
+/* link colors when scrolled */
 .navbar.scrolled nav .nav-list a {
   color: #1D6980;
 }
@@ -86,14 +76,7 @@ body::before {
   color: #fff;
 }
 
-/* 9. Main content wrapper */
-.site-main {
-  min-height: 50vh;
-  padding: 4rem 2rem;
-  position: relative;
-}
-
-/* 10. Mobile: hamburger toggle */
+/* 6. Mobile hamburger */
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -110,16 +93,11 @@ body::before {
   background: #fff;
   border-radius: 3px;
 }
-
 .navbar.scrolled .nav-toggle span {
   background: #1D6980;
 }
 
-.navbar.scrolled .nav-toggle:hover span {
-  background: #fff;
-}
-
-/* 11. Mobile full‑screen menu overlay */
+/* 7. Mobile menu overlay */
 .mobile-menu {
   position: fixed;
   top: 0; left: 0;
@@ -141,8 +119,7 @@ body::before {
 }
 .mobile-menu-close {
   position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
+  top: 1.5rem; right: 1.5rem;
   font-size: 2rem;
   color: #fff;
   background: none;
@@ -163,93 +140,70 @@ body::before {
   text-decoration: none;
   transition: color 0.3s ease;
 }
-.mobile-nav-list a:hover {
-  color: #1D6980;
-}
-
-.navbar nav .nav-list a:active,
-.navbar nav .nav-list a:focus,
+.mobile-nav-list a:hover,
 .mobile-nav-list a:active,
 .mobile-nav-list a:focus {
   color: #1D6980;
 }
 
+/* 8. Social footer */
 .social-footer {
   position: fixed;
-  bottom: 2.1rem;
+  bottom: 2rem;
   left: 0;
   width: 100%;
-  padding: 0.75rem 0;
-  background: rgba(0, 0, 0, 0);  /* light tint so they stand out */
+  padding: 0.5rem 0;
   text-align: center;
-  z-index: 1500;                    /* above most other content */
+  z-index: 1500;
 }
-
-/* horizontal list, gap between icons */
 .social-list {
-  list-style: none;
   display: inline-flex;
-  gap: 2rem;
-  margin: 0;
-  padding: 0;
+  gap: 1.5rem;
+  list-style: none;
 }
-
 .social-list a i {
-  font-size: 2rem;            /* adjust this for larger/smaller icons */
-  color: #fff;                /* white by default */
+  font-size: 2rem;
+  color: #fff;
   transition: color 0.2s ease;
 }
-.social-list i.fa-facebook-f:hover {
-  color: #1877F2;
-}
-.social-list i.fa-instagram:hover {
-  color: #E4405F;  
-}
-.social-list i.fa-spotify:hover {
-  color: #1DB954;
-}
-.social-list i.fa-youtube:hover {
-  color: #FF0000;
-}
+.social-list i.fa-facebook-f:hover { color: #1877F2; }
+.social-list i.fa-instagram:hover  { color: #E4405F; }
+.social-list i.fa-spotify:hover    { color: #1DB954; }
+.social-list i.fa-youtube:hover    { color: #FF0000; }
 
-/* ensure page content doesn’t run under the footer */
+/* 9. Main wrapper: true 900px container */
 .site-main {
-  max-width: 900px;   /* never wider than this */
-  width: 100%;        /* but fill smaller viewports */
-  margin: 0 auto;     /* center on larger screens */
-  padding: 8rem 2rem 4rem;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 8rem 0 4rem;    /* top:8rem to clear navbar, no left/right */
   position: relative;
 }
 
-/* 1. BAND INTRO: fixed 600px on desktop */
+/* 10. Band intro section */
 .band-intro {
-  width: 100%;        /* fill the .site-main width */
-  max-width: 900px;    
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 4rem;
+  padding: 0 2rem;        /* horizontal gutter */
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
   text-align: center;
 }
-
-/* 2. IMAGE inside intro takes full container width */
 .band-photo {
   width: 100%;
-  max-width: 900px;       /* cap how big the photo can get */
   border-radius: 12px;
   display: block;
 }
-
-/* 3. INFO box fills the same 600px */
 .band-info {
   width: 100%;
-  background-color: #fff;
+  background: #fff;
   border-radius: 12px;
   padding: 2rem;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-
-/* 4. Use Chicle for both the title and the bio copy */
 .band-info h2,
 .band-info p {
   font-family: 'Chicle', cursive;
@@ -260,63 +214,18 @@ body::before {
   color: #1D6980;
 }
 .band-info p {
-  font-weight: 300;       /* if you want it extra light */
+  font-weight: 300;
   line-height: 1.6;
   color: #333;
 }
 
-/* 5. NARROW SCREENS: switch to 90% width */
-@media (max-width: 600px) {
-  .band-intro {
-    width: 90%;           /* fluid on mobile */
-  }
-  /* you can also adjust the photo cap if you like */
-  .band-photo {
-    max-width: 240px;
-  }
-}
-
-@media (max-width: 992px) {
-  /* remove side padding */
-  .navbar {
-    padding: 1rem 1rem;
-  }
-  /* hide desktop links, show toggle */
-  .navbar nav {
-    display: none;
-  }
-  .nav-toggle {
-    display: flex;
-  }
-  body {
-    /* allow the background to scroll with the content */
-    background-attachment: scroll !important;
-
-    /* cover the viewport, cropping only left/right */
-    background-size: cover !important;
-
-    /* center the image fully in both axes */
-    background-position: center center !important;
-  }
-  .social-footer {
-    bottom: 1rem;
-    padding: 0.5rem 0; /* was 0.75rem; less top/bottom padding */
-  }
-  .social-list {
-    gap: 1rem;
-  }
-}
-
-@media (max-width: 700px) {
-  .logo {
-    height: 50px; 
-  }
-}
-
-/* STREAM US – “card” style wrapper around your embed */
+/* 11. Stream Us section */
 .stream-us {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 4rem;
+  padding: 0 2rem;
   text-align: center;
-  padding: 4rem 2rem;
 }
 .stream-us h2 {
   font-family: 'Chicle', cursive;
@@ -324,8 +233,6 @@ body::before {
   color: #fff;
   margin-bottom: 2rem;
 }
-
-/* the “card” around the iframe */
 .spotify-card {
   width: 100%;
   max-width: 900px;
@@ -334,25 +241,29 @@ body::before {
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
-
 .spotify-card iframe {
   width: 100%;
-  height: 352px;   /* match your embed’s height */
+  height: 352px;
   border: none;
   display: block;
 }
 
-
-/* mobile tweak: shorter height & tighter padding */
+/* 12. Responsive tweaks */
+@media (max-width: 992px) {
+  .navbar { padding: 1rem; }
+  .navbar nav { display: none; }
+  .nav-toggle { display: flex; }
+  .social-footer { bottom: 1rem; }
+}
+@media (max-width: 700px) {
+  .logo { height: 50px; }
+}
 @media (max-width: 600px) {
+  .band-intro,
   .stream-us {
-    padding: 2rem 1rem;
+    padding: 0 1rem;
   }
-  .stream-us h2 {
-    font-size: 2.25rem;
-    margin-bottom: 1.5rem;
-  }
-  .spotify-card iframe {
-    height: 260px;
-  }
+  .band-photo { max-width: 240px; }
+  .stream-us h2 { font-size: 2.25rem; margin-bottom: 1.5rem; }
+  .spotify-card iframe { height: 260px; }
 }
