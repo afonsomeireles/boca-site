@@ -191,7 +191,7 @@ body {
     background-position: center center !important;
   }
   .social-footer {
-    bottom: 1rem;
+    bottom: 0.5rem;
     padding: 0.5rem 0; /* was 0.75rem; less top/bottom padding */
   }
   .social-list {
