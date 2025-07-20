@@ -148,13 +148,12 @@ body::before {
 
 /* 8. Social footer */
 .social-footer {
-  position: static;
-  bottom: 2rem;
-  left: 0;
-  width: 100%;
-  padding: 0.5rem 0;
+  position: static;     /* let it flow naturally */
+  width: 100%;          /* optional, can be omitted for static */
+  padding: 2rem 0;      /* 2rem top & bottom padding */
+  margin-top: 2rem;     /* extra gap above the footer */
   text-align: center;
-  z-index: 1500;
+  background: none;     /* keep it transparent */
 }
 .social-list {
   display: inline-flex;
