@@ -210,41 +210,59 @@ body {
   padding-bottom: 4rem;  /* at least the height of the footer */
 }
 
+/* 1. BAND INTRO: fixed 600px on desktop */
 .band-intro {
-  max-width: 800px;       /* limits how wide the section can grow */
-  width: 90%;             /* shrinks nicely on smaller screens */
-  margin: 4rem auto;      /* space above/below, centered horizontally */
+  width: 600px;           /* fixed width */
+  margin: 4rem auto;      
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;            /* space between image and text box */
+  gap: 1.5rem;
+  text-align: center;
 }
 
+/* 2. IMAGE inside intro takes full container width */
 .band-photo {
-  width: 100%;            /* fills the .band-intro container */
-  border-radius: 12px;    /* smooth rounded corners */
+  width: 100%;
+  max-width: 300px;       /* cap how big the photo can get */
+  border-radius: 12px;
   display: block;
 }
 
+/* 3. INFO box fills the same 600px */
 .band-info {
-  width: 100%;            /* same width as photo */
+  width: 100%;
   background-color: #fff;
   border-radius: 12px;
   padding: 2rem;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  text-align: center;
 }
 
-.band-info h2 {
-  margin-bottom: 1rem;
-  font-size: 2rem;
-  color: #1D6980;         /* your accent teal */
-}
-
+/* 4. Use Chicle for both the title and the bio copy */
+.band-info h2,
 .band-info p {
-  font-weight: 300;           
+  font-family: 'Chicle', cursive;
+}
+.band-info h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #1D6980;
+}
+.band-info p {
+  font-weight: 300;       /* if you want it extra light */
   line-height: 1.6;
   color: #333;
+}
+
+/* 5. NARROW SCREENS: switch to 90% width */
+@media (max-width: 600px) {
+  .band-intro {
+    width: 90%;           /* fluid on mobile */
+  }
+  /* you can also adjust the photo cap if you like */
+  .band-photo {
+    max-width: 240px;
+  }
 }
 
 @media (max-width: 992px) {
