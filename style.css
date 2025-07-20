@@ -260,6 +260,39 @@ body::before {
   display: block;
 }
 
+/* — FOLLOW US — */
+.follow-us {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 4rem;
+  padding: 0 2rem;
+  text-align: center;
+}
+.follow-us h2 {
+  font-family: 'Chicle', cursive;
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 2rem;
+}
+
+/* make the page plugin scroll horizontally */
+.facebook-feed {
+  display: flex;
+  overflow-x: auto;
+  padding-bottom: 1rem;   /* give a little breathing room */
+}
+.facebook-feed .fb-page {
+  flex: 0 0 auto;         /* lock each plugin to its own width */
+  margin-right: 1rem;     /* gap before you scroll */
+}
+.facebook-feed::-webkit-scrollbar {
+  height: 8px;
+}
+.facebook-feed::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.4);
+  border-radius: 4px;
+}
+
 /* — CONTACT US — */
 .contact-us {
   text-align: center;
