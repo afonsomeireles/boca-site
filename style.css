@@ -222,8 +222,8 @@ body::before {
 
 /* 1. BAND INTRO: fixed 600px on desktop */
 .band-intro {
-  width: 600px;           /* fixed width */
-  margin: 4rem auto;      
+  width: 100%;        /* fill the .site-main width */
+  max-width: 900px;    
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -234,7 +234,7 @@ body::before {
 /* 2. IMAGE inside intro takes full container width */
 .band-photo {
   width: 100%;
-  max-width: 700px;       /* cap how big the photo can get */
+  max-width: 900px;       /* cap how big the photo can get */
   border-radius: 12px;
   display: block;
 }
