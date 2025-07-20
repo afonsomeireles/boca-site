@@ -3,13 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BOCA - Coming Soon</title>
+  <title>BOCA – Coming Soon</title>
+
+  <!-- FontAwesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+
+  <!-- Google Font: Chicle -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Chicle&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Your main stylesheet -->
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Chicle&display=swap" rel="stylesheet" />
 </head>
 <body>
+
+  <!-- NAVBAR -->
   <header class="navbar">
-    <img src="images/boca_logo_transparent.png" alt="BOCA Logo" class="logo" />
+    <img
+      src="images/boca_logo_transparent.png"
+      alt="BOCA Logo"
+      class="logo"
+    />
+
+    <!-- desktop nav -->
     <nav>
       <ul class="nav-list">
         <li><a href="index.html">Home</a></li>
@@ -19,36 +40,88 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
-    <button class="nav-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+
+    <!-- mobile hamburger -->
+    <button class="nav-toggle" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </header>
 
-  <main class="site-main">
-  <h1
-    style="
-      font-family: 'Chicle', cursive;
-      color: #fff;
-      font-size: 3rem;
-      text-align: center;
-      margin: 8rem 0;
-    "
-  >
-    Coming Soon :)
-  </h1>
-</main>
+  <!-- MOBILE MENU OVERLAY -->
+  <div class="mobile-menu" aria-hidden="true">
+    <button class="mobile-menu-close" aria-label="Close menu">✕</button>
+    <nav>
+      <ul class="mobile-nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gigs.html">Gig Schedule</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="merch.html">Merch</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
 
+  <!-- MAIN CONTENT -->
+  <main class="site-main">
+    <h1
+      style="
+        font-family: 'Chicle', cursive;
+        color: #fff;
+        font-size: 3rem;
+        text-align: center;
+        margin: 8rem 0;
+      "
+    >
+      Coming Soon :)
+    </h1>
+  </main>
+
+  <!-- SOCIAL FOOTER -->
+  <footer class="social-footer">
+    <ul class="social-list">
+      <li>
+        <a href="https://www.facebook.com/thebocaband/" target="_blank" rel="noopener">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.instagram.com/thebocaband/" target="_blank" rel="noopener">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://open.spotify.com/artist/1BYwhFnFgPLS3kUa2FOoZ6" target="_blank" rel="noopener">
+          <i class="fab fa-spotify"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/@thebocaband7885" target="_blank" rel="noopener">
+          <i class="fab fa-youtube"></i>
+        </a>
+      </li>
+    </ul>
+  </footer>
+
+  <!-- SCRIPTS: navbar blur & mobile toggle -->
   <script>
+    // blur navbar on scroll
     const nav = document.querySelector('.navbar');
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 0);
     });
+
+    // mobile menu open/close
     const toggle = document.querySelector('.nav-toggle');
     const mobileMenu = document.querySelector('.mobile-menu');
     const closeBtn = document.querySelector('.mobile-menu-close');
+
     toggle.addEventListener('click', () => {
-      mobileMenu.setAttribute('aria-hidden', 'false'); mobileMenu.classList.add('open');
+      mobileMenu.setAttribute('aria-hidden', 'false');
+      mobileMenu.classList.add('open');
     });
     closeBtn.addEventListener('click', () => {
-      mobileMenu.setAttribute('aria-hidden', 'true'); mobileMenu.classList.remove('open');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      mobileMenu.classList.remove('open');
     });
   </script>
 </body>
