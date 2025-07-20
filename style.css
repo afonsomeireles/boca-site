@@ -20,7 +20,7 @@ body::before {
   top: 0; left: 0;
   width: 100vw;
   height: 100vh;
-  background: url('images/textured_background_black.png') center center/cover no-repeat;
+  background: url('images/black_textured_blackground.png') center center/cover no-repeat;
   z-index: -1;
   pointer-events: none;
 }
