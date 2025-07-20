@@ -27,17 +27,18 @@
 
   <!-- NAVBAR -->
   <header class="navbar">
+    <!-- white logo on transparent bg -->
     <img
-    src="images/boca_logo_white_transparent.png"
-    alt="BOCA Logo (white)"
-    class="logo logo--light"
-  />
-
-  <img
-    src="images/boca_logo_black_transparent.png"
-    alt="BOCA Logo (black)"
-    class="logo logo--dark"
-  />
+      src="images/boca_logo_white_transparent.png"
+      alt="BOCA Logo (white)"
+      class="logo logo--light"
+    />
+    <!-- black logo on white/blurred bg -->
+    <img
+      src="images/boca_logo_black_transparent.png"
+      alt="BOCA Logo (black)"
+      class="logo logo--dark"
+    />
 
     <!-- desktop nav -->
     <nav>
@@ -60,10 +61,7 @@
 
   <!-- MOBILE MENU OVERLAY -->
   <div class="mobile-menu" aria-hidden="true">
-    <button
-      class="mobile-menu-close"
-      aria-label="Close menu"
-    >✕</button>
+    <button class="mobile-menu-close" aria-label="Close menu">✕</button>
     <nav>
       <ul class="mobile-nav-list">
         <li><a href="index.html">Home</a></li>
@@ -85,19 +83,15 @@
         alt="BOCA band photo"
         class="band-photo"
       />
-
       <div class="band-info">
         <h2>BOCA – Band of Consenting Adults</h2>
-        <p>
-          Quick Boca bio. From rock to pop to country to soul.
-        </p>
+        <p>Quick Boca bio. From rock to pop to country to soul.</p>
       </div>
     </section>
 
     <!-- STREAM US -->
     <section class="stream-us">
       <h2>Stream Us</h2>
-
       <div class="spotify-card">
         <iframe
           src="https://open.spotify.com/embed/artist/1BYwhFnFgPLS3kUa2FOoZ6?utm_source=generator&theme=0"
@@ -110,43 +104,36 @@
       </div>
     </section>
 
-      <!-- FOLLOW US -->
-  <section class="follow-us">
-    <h2>Follow Us</h2>
-
-    <div class="facebook-feed">
-      <!-- Page Plugin: width bigger than container so you can scroll -->
-      <div
-        class="fb-page"
-        data-href="https://www.facebook.com/thebocaband"
-        data-tabs="timeline"
-        data-width="800"
-        data-height="300"
-        data-small-header="false"
-        data-adapt-container-width="false"
-        data-hide-cover="false"
-        data-show-facepile="true">
+    <!-- FOLLOW US -->
+    <section class="follow-us">
+      <h2>Follow Us</h2>
+      <div class="facebook-feed">
+        <div
+          class="fb-page"
+          data-href="https://www.facebook.com/thebocaband"
+          data-tabs="timeline"
+          data-width="800"
+          data-height="300"
+          data-small-header="false"
+          data-adapt-container-width="false"
+          data-hide-cover="false"
+          data-show-facepile="true"
+        ></div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Make sure this is right before your closing </body> tag -->
-  <div id="fb-root"></div>
-  <script async defer crossorigin="anonymous"
-    src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0">
-  </script>
-    
+    <!-- CONTACT US -->
     <section class="contact-us">
-    <h2>Contact Us</h2>
-    <div class="contact-card">
-      <p>
-        For bookings or general inquiries email us at
-        <a href="mailto:thebocaband757@gmail.com">thebocaband757@gmail.com</a>,
-        or send us a text at
-        <a href="tel:+17573732660">+1 (757)‑373‑2660</a>.
-      </p>
-    </div>
-  </section>
+      <h2>Contact Us</h2>
+      <div class="contact-card">
+        <p>
+          For bookings or general inquiries email us at
+          <a href="mailto:thebocaband757@gmail.com">thebocaband757@gmail.com</a>,
+          or send us a text at
+          <a href="tel:+17573732660">+1 (757) 373‑2660</a>.
+        </p>
+      </div>
+    </section>
 
   </main>
 
@@ -154,45 +141,35 @@
   <footer class="social-footer">
     <ul class="social-list">
       <li>
-        <a
-          href="https://www.facebook.com/thebocaband/"
-          target="_blank"
-          rel="noopener"
-        >
+        <a href="https://www.facebook.com/thebocaband/" target="_blank" rel="noopener">
           <i class="fab fa-facebook-f"></i>
         </a>
       </li>
       <li>
-        <a
-          href="https://www.instagram.com/thebocaband/"
-          target="_blank"
-          rel="noopener"
-        >
+        <a href="https://www.instagram.com/thebocaband/" target="_blank" rel="noopener">
           <i class="fab fa-instagram"></i>
         </a>
       </li>
       <li>
-        <a
-          href="https://open.spotify.com/artist/1BYwhFnFgPLS3kUa2FOoZ6"
-          target="_blank"
-          rel="noopener"
-        >
+        <a href="https://open.spotify.com/artist/1BYwhFnFgPLS3kUa2FOoZ6" target="_blank" rel="noopener">
           <i class="fab fa-spotify"></i>
         </a>
       </li>
       <li>
-        <a
-          href="https://www.youtube.com/@thebocaband7885"
-          target="_blank"
-          rel="noopener"
-        >
+        <a href="https://www.youtube.com/@thebocaband7885" target="_blank" rel="noopener">
           <i class="fab fa-youtube"></i>
         </a>
       </li>
     </ul>
   </footer>
 
-  <!-- SCRIPTS: navbar blur & mobile toggle -->
+  <!-- Facebook SDK -->
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0">
+  </script>
+
+  <!-- NAV + MOBILE TOGGLE SCRIPTS -->
   <script>
     // blur navbar on scroll
     const nav = document.querySelector('.navbar');
@@ -204,7 +181,6 @@
     const toggle = document.querySelector('.nav-toggle');
     const mobileMenu = document.querySelector('.mobile-menu');
     const closeBtn = document.querySelector('.mobile-menu-close');
-
     toggle.addEventListener('click', () => {
       mobileMenu.setAttribute('aria-hidden', 'false');
       mobileMenu.classList.add('open');
