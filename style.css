@@ -1,0 +1,321 @@
+/* 1. Global reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* 2. Fixed, full‑viewport background via pseudo-element */
+body {
+  background: none !important;
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('images/textured_background.png') center center/cover no-repeat;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* 3. Navbar */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 4rem;
+  background-color: transparent;
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+  z-index: 1000;
+}
+/* on scroll */
+.navbar.scrolled {
+  background-color: rgba(255,255,255,0.8);
+  backdrop-filter: blur(10px);
+}
+
+/* 4. Logo */
+.logo {
+  height: 70px;
+}
+
+/* 5. Desktop nav links */
+.navbar nav .nav-list {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+  align-items: center;
+}
+.navbar nav .nav-list a {
+  font-family: 'Chicle', cursive;
+  font-weight: bold;
+  font-size: 2rem;
+  color: #fff;
+  text-transform: capitalize;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.navbar nav .nav-list a:hover {
+  color: #1D6980;
+}
+/* link colors when scrolled */
+.navbar.scrolled nav .nav-list a {
+  color: #1D6980;
+}
+.navbar.scrolled nav .nav-list a:hover {
+  color: #fff;
+}
+
+/* 6. Mobile hamburger */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 1rem;
+}
+.nav-toggle span {
+  display: block;
+  width: 32px;
+  height: 6px;
+  background: #fff;
+  border-radius: 3px;
+}
+.navbar.scrolled .nav-toggle span {
+  background: #1D6980;
+}
+
+/* 7. Mobile menu overlay */
+.mobile-menu {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 2000;
+}
+.mobile-menu.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.mobile-menu-close {
+  position: absolute;
+  top: 1.5rem; right: 1.5rem;
+  font-size: 2rem;
+  color: #fff;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.mobile-nav-list {
+  list-style: none;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.mobile-nav-list a {
+  font-family: 'Chicle', cursive;
+  font-size: 2.5rem;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.mobile-nav-list a:hover,
+.mobile-nav-list a:active,
+.mobile-nav-list a:focus {
+  color: #1D6980;
+}
+
+/* 8. Social footer */
+.social-footer {
+  position: static;     /* let it flow naturally */
+  width: 100%;          /* optional, can be omitted for static */
+  padding: 2.2rem 0;      /* 2rem top & bottom padding */
+  margin-top: 2rem;     /* extra gap above the footer */
+  text-align: center;
+  background: none;     /* keep it transparent */
+}
+.social-list {
+  display: inline-flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+.social-list a i {
+  font-size: 2rem;
+  color: #fff;
+  transition: color 0.2s ease;
+}
+.social-list i.fa-facebook-f:hover { color: #1877F2; }
+.social-list i.fa-instagram:hover  { color: #E4405F; }
+.social-list i.fa-spotify:hover    { color: #1DB954; }
+.social-list i.fa-youtube:hover    { color: #FF0000; }
+
+/* 9. Main wrapper: true 900px container */
+.site-main {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 8rem 0 4rem;    /* top:8rem to clear navbar, no left/right */
+  position: relative;
+}
+
+/* 10. Band intro section */
+.band-intro {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 4rem;
+  padding: 0 2rem;        /* horizontal gutter */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+}
+.band-photo {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
+}
+.band-info {
+  width: 100%;
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.band-info h2,
+.band-info p {
+  font-family: 'Chicle', cursive;
+}
+.band-info h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #1D6980;
+}
+.band-info p {
+  font-weight: 300;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* 11. Stream Us section */
+.stream-us {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 4rem;
+  padding: 0 2rem;
+  text-align: center;
+}
+.stream-us h2 {
+  font-family: 'Chicle', cursive;
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 2rem;
+}
+.spotify-card {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.spotify-card iframe {
+  width: 100%;
+  height: 352px;
+  border: none;
+  display: block;
+}
+
+/* — CONTACT US — */
+.contact-us {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.contact-us h2 {
+  font-family: 'Chicle', cursive;
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 2rem;
+}
+
+/* the dark, semi‑transparent “card” */
+.contact-card {
+  max-width: 900px;
+  margin: 0 auto;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+.contact-card p {
+  font-family: 'Chicle', cursive;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+/* Make mailto/tel links white inside the contact card */
+.contact-card a {
+  color: #fff;
+  text-decoration: none;      /* or underline if you prefer */
+}
+
+.contact-card a:hover,
+.contact-card a:focus {
+  color: #1D6980;
+  text-decoration: underline; /* optional hover cue */
+}
+
+/* 12. Responsive tweaks */
+@media (max-width: 992px) {
+  .navbar { padding: 1rem; }
+  .navbar nav { display: none; }
+  .nav-toggle { display: flex; }
+  .social-footer { bottom: 1rem; }
+}
+@media (max-width: 700px) {
+  .logo { height: 50px; }
+}
+@media (max-width: 600px) {
+  .band-intro,
+  .stream-us {
+    padding: 0 1rem;
+  }
+  .stream-us h2 { font-size: 2.25rem; margin-bottom: 1.5rem; }
+  .contact-us {
+    padding: 2rem 1rem;
+  }
+  .contact-us h2 {
+    font-size: 2.25rem;
+    margin-bottom: 1.5rem;
+  }
+  .contact-card {
+    padding: 1.5rem;
+  }
+  .contact-card p {
+    font-size: 1rem;
+  }
+}
