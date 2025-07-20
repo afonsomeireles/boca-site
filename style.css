@@ -79,11 +79,11 @@ body::before {
   transition: color 0.3s ease;
 }
 .navbar nav .nav-list a:hover {
-  color: #1D6980;
+  color: #C42026;
 }
 /* link colors when scrolled */
 .navbar.scrolled nav .nav-list a {
-  color: #1D6980;
+  color: #C42026;
 }
 .navbar.scrolled nav .nav-list a:hover {
   color: #fff;
@@ -107,7 +107,7 @@ body::before {
   border-radius: 3px;
 }
 .navbar.scrolled .nav-toggle span {
-  background: #1D6980;
+  background: #C42026;
 }
 
 /* 7. Mobile menu overlay */
@@ -156,7 +156,7 @@ body::before {
 .mobile-nav-list a:hover,
 .mobile-nav-list a:active,
 .mobile-nav-list a:focus {
-  color: #1D6980;
+  color: #C42026;
 }
 
 /* 8. Social footer */
@@ -223,7 +223,7 @@ body::before {
 .band-info h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: #1D6980;
+  color: #C42026;
 }
 .band-info p {
   font-weight: 300;
@@ -298,7 +298,7 @@ body::before {
 
 .contact-card a:hover,
 .contact-card a:focus {
-  color: #1D6980;
+  color: #C42026;
   text-decoration: underline; /* optional hover cue */
 }
 
