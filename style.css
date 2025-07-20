@@ -264,7 +264,7 @@ body::before {
 .contact-card {
   max-width: 900px;
   margin: 0 auto;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.8);
   border-radius: 12px;
   padding: 2rem;
 }
@@ -272,9 +272,21 @@ body::before {
 .contact-card p {
   font-family: 'Chicle', cursive;
   color: #fff;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 300;
   line-height: 1.6;
+}
+
+/* Make mailto/tel links white inside the contact card */
+.contact-card a {
+  color: #fff;
+  text-decoration: none;      /* or underline if you prefer */
+}
+
+.contact-card a:hover,
+.contact-card a:focus {
+  color: #1D6980;
+  text-decoration: underline; /* optional hover cue */
 }
 
 /* 12. Responsive tweaks */
