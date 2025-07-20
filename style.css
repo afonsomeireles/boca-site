@@ -90,17 +90,18 @@ body {
 .nav-toggle {
   display: none;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0;
+  padding: 4rem;
 }
 .nav-toggle span {
   display: block;
-  width: 24px;
-  height: 3px;
+  width: 32px;
+  height: 6px;
   background: #fff;
+  border-radius: 3px;
 }
 
 /* 11. Mobile full‑screen menu overlay */
@@ -152,7 +153,7 @@ body {
 }
 
 /* 12. Responsive breakpoint (mobile) */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   /* remove side padding */
   .navbar {
     padding: 1rem 1rem;
