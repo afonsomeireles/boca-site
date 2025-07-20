@@ -6,7 +6,20 @@
   padding: 0;
   box-sizing: border-box;
 }
-html, body { height: 100%; }
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  /* image stays centered; no tiling; locked to the viewport */
+  background-image:    url('images/textured_background.png');
+  background-repeat:   no-repeat;
+  background-position: center center; /* center horizontally & vertically */
+  background-attachment: fixed;       /* stays in place as you scroll (optional) */
+  background-size:     auto 100vh;    /* height = 100% of viewport, width auto */
+}
 
 .hero {
   position: relative;
@@ -22,16 +35,9 @@ html, body { height: 100%; }
 }
 
 .site-main {
-  /* Use the full‑bleed bg but align its bottom edge */
-  background-image:    url('images/background.png');
-  background-position: bottom center;  /* <-- bottom‑aligned */
-  background-size:     cover;          /* <-- always fill width */
-  background-repeat:   no-repeat;
-  
-  /* Make sure the container is tall enough to hold your footer overlay */
-  min-height: 50vh;    /* adjust as needed (e.g. 100vh for full‑screen) */
+  min-height: 50vh;  
   padding:    4rem 2rem;
-  position:   relative; /* if your footer overlay is absolute‑positioned inside */
+  position:   relative;
 }
 
 .navbar {
