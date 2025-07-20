@@ -25,23 +25,12 @@
     </nav>
   </header>
 
-  <header class="hero">
-    <img
-      src="images/band_photo.jpg"
-      alt="BOCA band photo"
-      class="hero-img"
-    />
-    <div class="bio-container">
-      <div class="bio-text">
-        <h1>BOCA</h1>
-        <p>Boca Bio.</p>
-      </div>
-    </div>
-  </header>
   <main class="site-main">
+    <!-- Your page content goes here -->
   </main>
+
   <script>
-    // sticky → transparent on scroll
+    // keep navbar transparent on top, then semi‑opaque once you scroll
     const nav = document.querySelector('.navbar');
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 0);
