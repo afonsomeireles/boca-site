@@ -46,7 +46,7 @@ body {
   display: flex;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: rgba(255,255,255,0.1); 
+  background-color: rgba(255,255,255,0.2); 
   backdrop-filter: blur(10px);   
   color: #fff;  
   transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
