@@ -386,14 +386,14 @@ body::before {
 .contact-card {
   max-width: 900px;
   margin: 0 auto;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(255, 255, 255, 0.8);
   border-radius: 12px;
   padding: 2rem;
 }
 
 .contact-card p {
   font-family: 'Chicle', cursive;
-  color: #fff;
+  color: #1e1e1e;
   font-size: 1.5rem;
   font-weight: 300;
   line-height: 1.6;
@@ -401,7 +401,7 @@ body::before {
 
 /* Make mailto/tel links white inside the contact card */
 .contact-card a {
-  color: #fff;
+  color: #1e1e1e;
   text-decoration: none;      /* or underline if you prefer */
 }
 
