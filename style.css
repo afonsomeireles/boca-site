@@ -30,7 +30,7 @@ body::before {
 .hero-video {
   position: relative;
   width: 100vw;
-  height: 60vh;
+  height: 100vh;
   min-height: 400px; /* Minimum height for smaller screens */
   margin: 0;
   padding: 0;
@@ -381,5 +381,9 @@ body::before {
   }
   .contact-card p {
     font-size: 1rem;
+  }
+  .hero-video {
+    height: 40vh; /* Even smaller height on very small screens */
+    min-height: 250px; /* Even smaller on very small screens */
   }
 }
