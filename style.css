@@ -32,7 +32,7 @@ body::before {
   width: 100vw;
   height: 70vh; /* Increased from 60vh to 70vh for more height */
   min-height: 400px; /* Minimum height for smaller screens */
-  /*max-height: 800px; /* Maximum height to prevent it from getting too tall on very large screens */
+  max-height: 800px; /* Maximum height to prevent it from getting too tall on very large screens */
   margin: 0;
   padding: 0;
   left: 50%;
@@ -58,12 +58,11 @@ body::before {
   left: 50%;
   transform: translate(-50%, -50%);
   /* Force minimum dimensions to ensure full coverage */
-  width: 100%; /* calc(100vw + 200px);*/
-  height: 100%; /* calc(100vh + 200px);*/
-  /*min-height: 100vh;*/
+  width: calc(100vw + 200px);
+  height: calc(100vh + 200px);
+  min-height: 100vh;
   border: 0;
   pointer-events: none;
-  object-fit: cover;
 }
 
 /* Ensure no container restrictions */
