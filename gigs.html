@@ -29,7 +29,7 @@
 </head>
 <body>
 
-  <!-- NAVBAR (identical to index.html) -->
+  <!-- NAVBAR -->
   <header class="navbar">
     <img
       src="images/boca_logo_white_transparent.png"
@@ -41,6 +41,7 @@
       alt="BOCA Logo (black)"
       class="logo logo--dark"
     />
+
     <nav>
       <ul class="nav-list">
         <li><a href="index.html">Home</a></li>
@@ -50,10 +51,25 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
+
     <button class="nav-toggle" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
   </header>
+
+  <!-- MOBILE MENU OVERLAY (must be present!) -->
+  <div class="mobile-menu" aria-hidden="true">
+    <button class="mobile-menu-close" aria-label="Close menu">✕</button>
+    <nav>
+      <ul class="mobile-nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gigs.html">Gig Schedule</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="merch.html">Merch</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
 
   <!-- MAIN CONTENT -->
   <main class="site-main">
@@ -70,78 +86,93 @@
 
   <!-- SOCIAL FOOTER -->
   <footer class="social-footer">
-    <!-- …same as index.html… -->
+    <ul class="social-list">
+      <li><a href="https://www.facebook.com/thebocaband/" target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a></li>
+      <li><a href="https://www.instagram.com/thebocaband/" target="_blank" rel="noopener">
+        <i class="fab fa-instagram"></i>
+      </a></li>
+      <li><a href="https://open.spotify.com/artist/1BYwhFnFgPLS3kUa2FOoZ6" target="_blank" rel="noopener">
+        <i class="fab fa-spotify"></i>
+      </a></li>
+      <li><a href="https://www.youtube.com/@thebocaband7885" target="_blank" rel="noopener">
+        <i class="fab fa-youtube"></i>
+      </a></li>
+    </ul>
   </footer>
 
   <!-- SCRIPTS -->
   <script>
+    // 1) Scroll blur + logo swap
+    const nav = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 0);
+    });
+
+    // 2) Mobile menu toggle (guard against missing nodes)
+    const toggle = document.querySelector('.nav-toggle');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const closeBtn = document.querySelector('.mobile-menu-close');
+
+    if (toggle && mobileMenu) {
+      toggle.addEventListener('click', () => {
+        mobileMenu.setAttribute('aria-hidden','false');
+        mobileMenu.classList.add('open');
+      });
+    }
+    if (closeBtn && mobileMenu) {
+      closeBtn.addEventListener('click', () => {
+        mobileMenu.setAttribute('aria-hidden','true');
+        mobileMenu.classList.remove('open');
+      });
+    }
+
+    // 3) Pull in your shows.json, filter + sort + render
     document.addEventListener('DOMContentLoaded', () => {
       const container = document.getElementById('gigs-list');
       fetch('shows.json')
         .then(r => r.json())
         .then(shows => {
-          // 1. Parse & normalize dates
           const today = new Date();
           today.setHours(0,0,0,0);
 
           const upcoming = shows
-            .map(s => ({
-              ...s,
-              dateObj: new Date(s.date)
-            }))
+            .map(s => ({ ...s, dateObj: new Date(s.date) }))
             .filter(s => {
               s.dateObj.setHours(0,0,0,0);
               return s.dateObj >= today;
             })
             .sort((a,b) => a.dateObj - b.dateObj);
 
-          // 2. Render
+          // render
           const opts = { month: 'short', day: 'numeric', year: 'numeric' };
-          upcoming.forEach(show => {
-            const row = document.createElement('div');
-            row.className = 'gig-row';
-
-            // Format e.g. "Aug 9, 2025" → uppercase
-            const dateStr = show.dateObj
-              .toLocaleDateString('en-US', opts)
-              .toUpperCase();
-
-            row.innerHTML = `
-              <div class="gig-date">${dateStr}</div>
-              <div class="gig-venue">${show.venue}</div>
-              <div class="gig-time">${show.time}</div>
-            `;
-            container.appendChild(row);
-          });
-
-          if (!upcoming.length) {
+          if (upcoming.length === 0) {
             container.innerHTML = '<p>No upcoming shows at the moment. Check back soon!</p>';
+          } else {
+            upcoming.forEach(show => {
+              const row = document.createElement('div');
+              row.className = 'gig-row';
+
+              const dateStr = show.dateObj
+                .toLocaleDateString('en-US', opts)
+                .toUpperCase();
+
+              row.innerHTML = `
+                <div class="gig-date">${dateStr}</div>
+                <div class="gig-venue">${show.venue}</div>
+                <div class="gig-time">${show.time}</div>
+              `;
+              container.appendChild(row);
+            });
           }
         })
         .catch(err => {
-          console.error(err);
-          container.innerHTML = '<p>Failed to load shows.</p>';
+          console.error('Failed to load shows.json', err);
+          container.innerHTML = '<p>Unable to load show data.</p>';
         });
     });
   </script>
 
-  <!-- NAV + MOBILE TOGGLE (same as index.html) -->
-  <script>
-    const nav = document.querySelector('.navbar');
-    window.addEventListener('scroll', () =>
-      nav.classList.toggle('scrolled', window.scrollY > 0)
-    );
-    const toggle = document.querySelector('.nav-toggle');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    const closeBtn = document.querySelector('.mobile-menu-close');
-    toggle.addEventListener('click', () => {
-      mobileMenu.setAttribute('aria-hidden','false');
-      mobileMenu.classList.add('open');
-    });
-    closeBtn.addEventListener('click', () => {
-      mobileMenu.setAttribute('aria-hidden','true');
-      mobileMenu.classList.remove('open');
-    });
-  </script>
 </body>
 </html>
