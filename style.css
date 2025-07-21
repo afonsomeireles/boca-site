@@ -27,28 +27,25 @@ body::before {
 }
 
 /* HERO VIDEO */
-/* 1) Make the hero “wall‑to‑wall” & never shorter than 300px */
 .hero-video {
   position: relative;
-  width: 100%;        /* span its parent (body) */
-  max-width: none;    /* override any container limits */
-  height: 60vh;       /* adjust to taste */
-  min-height: 300px;  /* ensure a floor */
-  margin: 0;          /* no gutters */
-  overflow: hidden;   /* crop the iframe */
+  width: 100vw !important;                            /* full viewport width */
+  margin-left: calc(50% - 50vw) !important;            /* pull it back out of any centered container */
+  height: 60vh;                                        /* adjust as you like */
+  min-height: 300px;                                   /* floor on mobile */
+  overflow: hidden;
+  padding: 0;
 }
 
-/* 2) Absolutely centre & cover‑crop the Vimeo iframe */
+/* absolutely center & cover‑crop the iframe */
 .hero-video iframe {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 50%; left: 50%;
   transform: translate(-50%, -50%);
-  width: auto;         /* scale preserving aspect */
+  width: auto;
   height: auto;
-  min-width: 100%;     /* never go narrower than container */
-  min-height: 100%;    /* never shrink below container height */
-  object-fit: cover;   /* crop off any overflow cleanly */
+  min-width: 100%;
+  min-height: 100%;
   border: 0;
 }
 
