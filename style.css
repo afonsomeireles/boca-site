@@ -28,16 +28,18 @@ body::before {
 
 /* HERO VIDEO - FIXED FULL WIDTH */
 .hero-video {
-  position: relative;  
-  width: 100vw;       
-  /* center the 100vw box in the page */
-  margin-left: 50%;
-  transform: translateX(-50%);
-  /* pick your desktop height */
-  height: 60vh;       
-  min-height: 400px;  
-  overflow: hidden;   
-  z-index: 1;         
+  position: relative;
+  width: 100vw;
+  height: 60vh;
+  min-height: 400px; /* Minimum height for smaller screens */
+  margin: 0;
+  padding: 0;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+  z-index: 1;
 }
 
 /* Video wrapper for better control */
@@ -48,16 +50,21 @@ body::before {
   overflow: hidden;
 }
 
+/* Iframe styling - FORCE TRUE BACKGROUND BEHAVIOR */
 .hero-video iframe {
   position: absolute;
-  top: 0;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
-  height: 100%;
-  width: auto;
-  min-width: 100%;
+  transform: translate(-50%, -50%);
+  /* Force minimum dimensions to ensure full coverage */
+  width: calc(100vw + 200px);
+  height: calc(100vh + 200px);
+  min-width: 100vw;
+  min-height: 100vh;
   border: 0;
-  pointer-events: none; /* optional */
+  pointer-events: none;
+  /* Force 16:9 aspect ratio coverage */
+  aspect-ratio: 16/9;
 }
 
 /* Ensure no container restrictions */
@@ -65,7 +72,6 @@ body::before {
 .hero-video iframe {
   max-width: none !important;
 }
-
 /* 3. Navbar */
 .navbar {
   position: fixed;
