@@ -8,6 +8,7 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
+  overflow-x: hidden;
 }
 
 /* 2. Fixed, full‑viewport background via pseudo-element */
@@ -28,11 +29,13 @@ body::before {
 /* HERO VIDEO */
 .hero-video {
   position: relative;
-  width: 100vw;         /* real full viewport width */
-  height: 60vh;         /* pick the height you like */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;          /* this is now *really* edge‑to‑edge */
+  height: 60vh;          /* adjust as you like */
   overflow: hidden;
-  margin: 0;            /* no extra margins */
-  z‑index: 0;           /* nav should be z‑index:1000 */
+  margin: 0;             /* no extra margins to introduce scroll */
+  z-index: 0;            /* ensure your nav (z‑index:1000) sits on top */
 }
 
 .hero-video iframe {
@@ -43,6 +46,7 @@ body::before {
   min-height: 100%;
   width: auto;
   height: auto;
+  object-fit: cover;
 }
 
 /* 3. Navbar */
