@@ -445,6 +445,8 @@ body::before {
   }
   .contact-card p {
     font-size: 1rem;
+  }
+}
 
 
 /* — GIGS PAGE — */
@@ -463,13 +465,11 @@ body::before {
   margin-bottom: 2rem;
 }
 
-/* container for all rows */
 .gigs-list {
   display: grid;
   row-gap: 1rem;
 }
 
-/* each show as a 3‑col row */
 .gigs-list .gig-row {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
@@ -478,7 +478,6 @@ body::before {
   border-bottom: 1px solid rgba(255,255,255,0.2);
 }
 
-/* column styling */
 .gig-date,
 .gig-venue,
 .gig-time {
@@ -488,12 +487,10 @@ body::before {
   line-height: 1.4;
 }
 
-/* align text per column */
-.gig-date  { text-align: left;  }
-.gig-venue { text-align: center;}
+.gig-date  { text-align: left; }
+.gig-venue { text-align: center; }
 .gig-time  { text-align: right; }
 
-/* stack on small screens */
 @media (max-width: 700px) {
   .gigs-list {
     row-gap: 0.5rem;
@@ -510,7 +507,4 @@ body::before {
   .gig-time {
     margin-top: 0.25rem;
   }
-}
-
-
 }
