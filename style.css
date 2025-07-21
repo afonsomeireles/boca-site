@@ -26,30 +26,36 @@ body::before {
   pointer-events: none;
 }
 
-/* HERO VIDEO */
+/* HERO VIDEO - FIXED FULL WIDTH */
 .hero-video {
   position: relative;
-  width: 100vw !important;                            /* full viewport width */
-  margin-left: calc(50% - 50vw) !important;            /* pull it back out of any centered container */
-  height: 60vh;                                        /* adjust as you like */
-  min-height: 300px;                                   /* floor on mobile */
-  overflow: hidden;
+  width: 100vw;
+  height: 60vh;
+  min-height: 400px; /* Minimum height for smaller screens */
+  margin: 0;
   padding: 0;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+  z-index: 1;
 }
 
-/* absolutely center & cover‑crop the iframe */
+/* Iframe styling for proper cover behavior */
 .hero-video iframe {
   position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: auto;
-  height: auto;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   min-width: 100%;
   min-height: 100%;
   border: 0;
+  object-fit: cover;
 }
 
-/* 3) If anything still caps it, force it with !important */
+/* Ensure no container restrictions */
 .hero-video,
 .hero-video iframe {
   max-width: none !important;
@@ -341,6 +347,9 @@ body::before {
 }
 @media (max-width: 700px) {
   .logo { height: 50px; }
+  .hero-video {
+    min-height: 300px; /* Smaller minimum height on mobile */
+  }
 }
 @media (max-width: 600px) {
   .band-intro,
