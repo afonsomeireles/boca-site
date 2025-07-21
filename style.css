@@ -53,7 +53,7 @@ body::before {
 /* Iframe styling - FORCE TRUE BACKGROUND BEHAVIOR */
 .hero-video iframe {
   position: absolute;
-  top: 50%;
+  top: 0;
   left: 50%;
   transform: translateX(-50%);
   /* Force minimum dimensions to ensure full coverage */
