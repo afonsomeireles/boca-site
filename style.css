@@ -28,19 +28,19 @@ body::before {
 /* HERO VIDEO */
 .hero-video {
   position: relative;
-  width: 100%;
-  margin-top: /* same as your navbar height */ 72px;
+  width: 100vw;
+  height: 60vh;
   overflow: hidden;
   z-index: 1; /* underneath .navbar which is z-index:1000 */
 }
 
 .hero-video iframe {
-  display: block;
-  width: 100vw;
-  height: 60vh;       /* adjust this to taste (50–80vh common) */
-  min-height: 300px;  /* so it never collapses on very short screens */
-  object-fit: cover;  /* crops / scales to fill */
-  margin-left: calc((100% - 100vw) / 2); /* center if scrollbars appear */
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
 /* 3. Navbar */
