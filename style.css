@@ -365,7 +365,7 @@ body::before {
 .watch-us .video-container iframe {
   width: 100%;
   /* adjust height as needed (e.g. 500px) */
-  height: 500px;
+  height: auto;
   border: none;
   display: block;
 }
@@ -393,10 +393,10 @@ body::before {
 }
 
 .contact-card p {
-  font-family: 'Chicle', cursive;
+    font-family: 'Cal Sans', sans-serif;
   color: #1e1e1e;
   font-size: 1.5rem;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.6;
 }
 
