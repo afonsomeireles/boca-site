@@ -60,7 +60,6 @@ body::before {
   /* Force minimum dimensions to ensure full coverage */
   width: calc(100vw + 200px);
   height: calc(100vh + 200px);
-  min-width: 100vw;
   min-height: 100vh;
   border: 0;
   pointer-events: none;
