@@ -113,7 +113,12 @@
           today.setHours(0,0,0,0);
 
           const upcoming = shows
-            .map(s => ({ ...s, dateObj: new Date(s.date) }))
+           .map(s => {
+  const [year, month, day] = s.date.split('-').map(Number);
+  // monthIndex is zero‑based
+  const dateObj = new Date(year, month - 1, day);
+  return { ...s, dateObj };
+})
             .filter(s => { s.dateObj.setHours(0,0,0,0); return s.dateObj >= today; })
             .sort((a,b) => a.dateObj - b.dateObj);
 
