@@ -63,6 +63,8 @@
     </nav>
   </div>
 
+  <div style="height: 6rem;" aria-hidden="true"></div>
+
   <!-- MAIN CONTENT -->
   <main class="site-main">
     <section class="gigs-section">
@@ -126,11 +128,21 @@
               .toLocaleDateString('en-US', opts)
               .toUpperCase();
 
-            row.innerHTML = `
-              <div class="gig-date">${dateStr}</div>
-              <div class="gig-venue">${show.venue}</div>
-              <div class="gig-time">${show.time}</div>
-            `;
+              // build a Maps search URL
+  const mapsUrl = 
+    'https://www.google.com/maps/search/?api=1&query=' +
+    encodeURIComponent(show.venue);
+
+  row.innerHTML = `
+    <div class="gig-date">${dateStr}</div>
+    <div class="gig-venue">
+      <a href="${mapsUrl}" target="_blank" rel="noopener">
+        ${show.venue}
+      </a>
+    </div>
+    <div class="gig-time">${show.time}</div>
+  `;
+
             container.appendChild(row);
           });
 
