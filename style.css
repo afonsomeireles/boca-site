@@ -487,36 +487,54 @@ body::before {
   line-height: 1.4;
 }
 
+.gig-date {
+  font-weight: 700;
+}
+
 .gig-date  { text-align: left; }
 .gig-venue { text-align: center; }
 .gig-time  { text-align: right; }
 
 .gigs-list .gig-venue a {
   color: #fff;
-  text-decoration: none;
+  text-decoration: underline;
   transition: color 0.3s ease;
 }
 
 .gigs-list .gig-venue a:hover,
 .gigs-list .gig-venue a:focus {
   color: #C42026;
-  outline: none;
 }
 
 @media (max-width: 700px) {
+  /* tighten up the row gaps */
   .gigs-list {
     row-gap: 0.5rem;
   }
+
+  /* each gig becomes a single centered column */
   .gigs-list .gig-row {
+    display: grid;
     grid-template-columns: 1fr;
+    align-items: center;
     text-align: center;
+    /* keep your padding & border */
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
   }
+
+  /* smaller, centered text for all three “columns” */
   .gig-date,
   .gig-venue,
   .gig-time {
     font-size: 1rem;
+    text-align: center;
+    /* date is already bold via .gig-date { font-weight:700 } */
   }
+
+  /* give a little breathing room before the time */
   .gig-time {
     margin-top: 0.25rem;
   }
 }
+
