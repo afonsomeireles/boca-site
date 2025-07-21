@@ -357,12 +357,16 @@ body::before {
   .navbar nav { display: none; }
   .nav-toggle { display: flex; }
   .social-footer { bottom: 1rem; }
+  .hero-video {
+    height: 70vh; /* Smaller height on tablets */
+    min-height: 300px; /* Smaller minimum height on mobile */
+  }
 }
 
 @media (max-width: 700px) {
   .logo { height: 50px; }
   .hero-video {
-    height: 50vh; /* Smaller height on tablets */
+    height: 70vh; /* Smaller height on tablets */
     min-height: 300px; /* Smaller minimum height on mobile */
   }
 }
@@ -387,7 +391,7 @@ body::before {
     font-size: 1rem;
   }
   .hero-video {
-    height: 40vh; /* Even smaller height on very small screens */
+    height: 70vh; /* Even smaller height on very small screens */
     min-height: 250px; /* Even smaller on very small screens */
   }
 }
