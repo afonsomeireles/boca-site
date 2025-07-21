@@ -335,6 +335,40 @@ body::before {
   display: block;
 }
 
+/* — WATCH US — */
+.watch-us {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 4rem;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.watch-us h2 {
+  font-family: 'Chicle', cursive;
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 2rem;
+}
+
+/* match the “card” look of your Spotify embed */
+.watch-us .video-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.watch-us .video-container iframe {
+  width: 100%;
+  /* adjust height as needed (e.g. 500px) */
+  height: 500px;
+  border: none;
+  display: block;
+}
+
 /* — CONTACT US — */
 .contact-us {
   text-align: center;
