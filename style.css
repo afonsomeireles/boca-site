@@ -28,7 +28,7 @@ body::before {
 
 /* HERO VIDEO - FIXED FULL WIDTH */
 .hero-video {
-  position: fixed;
+  position: relative;
   width: 100vw;
   height: 100vh;
   min-height: 400px; /* Minimum height for smaller screens */
