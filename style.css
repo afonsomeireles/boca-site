@@ -42,7 +42,7 @@ body::before {
   transform: translateX(-50%); /* center horizontally */
   height: 100%;               /* always fill container height */
   width: auto;                /* auto‑scale width to keep aspect ratio */
-  min-width: 100%;            /* but never go narrower than the container */
+  min-height: 100%;            /* but never go narrower than the container */
   object-fit: cover;          /* crop excess sides cleanly */
 }
 
