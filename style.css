@@ -445,6 +445,54 @@ body::before {
   }
   .contact-card p {
     font-size: 1rem;
+
+
+/* — Gigs page — */
+.gigs-section {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 4rem;
+  padding: 0 2rem;
+  text-align: left;
+}
+
+.gigs-section h2 {
+  font-family: 'Chicle', cursive;
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 2rem;
+}
+
+/* each show row */
+.gigs-list .gig-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.gig-date,
+.gig-venue,
+.gig-time {
+  font-family: 'Cal Sans', sans-serif;
+  color: #fff;
+  font-size: 1.25rem;
+  line-height: 1.4;
+}
+
+/* responsive tweaks */
+@media (max-width: 700px) {
+  .gigs-list .gig-row {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  .gig-date,
+  .gig-venue,
+  .gig-time {
+    font-size: 1rem;
+  }
+}
   }
 
 }
