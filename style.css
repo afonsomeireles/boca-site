@@ -29,24 +29,21 @@ body::before {
 /* HERO VIDEO */
 .hero-video {
   position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100vw;          /* this is now *really* edge‑to‑edge */
-  height: 60vh;          /* adjust as you like */
-  overflow: hidden;
-  margin: 0;             /* no extra margins to introduce scroll */
-  z-index: 0;            /* ensure your nav (z‑index:1000) sits on top */
+  width: 100vw;         /* real “wall‑to‑wall” width */
+  height: 60vh;         /* pick your preferred viewport‑height */
+  min-height: 400px;    /* never shorter than this (tweak as needed) */
+  overflow: hidden;     /* hide the parts that overflow */
 }
 
 .hero-video iframe {
   position: absolute;
-  top: 0; left: 0;
-  /* these two together guarantee it always fills the container */
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: cover;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%); /* center horizontally */
+  height: 100%;               /* always fill container height */
+  width: auto;                /* auto‑scale width to keep aspect ratio */
+  min-width: 100%;            /* but never go narrower than the container */
+  object-fit: cover;          /* crop excess sides cleanly */
 }
 
 /* 3. Navbar */
