@@ -165,6 +165,10 @@
 
   <!-- NAV + MOBILE TOGGLE SCRIPTS -->
   <script>
+    window.addEventListener('scroll', () => {
+  console.log('scrollY →', window.scrollY);
+  nav.classList.toggle('scrolled', window.scrollY > 0);
+});
     // blur navbar on scroll
     const nav = document.querySelector('.navbar');
     window.addEventListener('scroll', () => {
