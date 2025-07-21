@@ -30,7 +30,7 @@ body::before {
 .hero-video {
   position: relative;
   width: 100vw;
-  height: auto;
+  height: 70vh; /* Increased from 60vh to 70vh for more height */
   min-height: 400px; /* Minimum height for smaller screens */
   max-height: 800px; /* Maximum height to prevent it from getting too tall on very large screens */
   margin: 0;
