@@ -28,19 +28,21 @@ body::before {
 /* HERO VIDEO */
 .hero-video {
   position: relative;
-  width: 100vw;
-  height: 60vh;
+  width: 100vw;         /* real full viewport width */
+  height: 60vh;         /* pick the height you like */
   overflow: hidden;
-  z-index: 1; /* underneath .navbar which is z-index:1000 */
+  margin: 0;            /* no extra margins */
+  z‑index: 0;           /* nav should be z‑index:1000 */
 }
 
 .hero-video iframe {
   position: absolute;
-  top:0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
+  top: 0; left: 0;
+  /* these two together guarantee it always fills the container */
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
 }
 
 /* 3. Navbar */
