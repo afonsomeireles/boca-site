@@ -274,43 +274,6 @@ body::before {
   display: block;
 }
 
-/* — FOLLOW US — */
-.follow-us {
-  text-align: center;
-  padding: 4rem 2rem;
-}
-
-.follow-us h2 {
-  font-family: 'Chicle', cursive;
-  font-size: 3rem;
-  color: #fff;
-  margin-bottom: 2rem;
-}
-
-/* wrap the plugin in a horizontally scrollable container */
-.facebook-feed {
-  max-width: 900px;        /* match your other cards */
-  margin: 0 auto;
-  overflow-x: auto;        /* enable horizontal scroll */
-  -webkit-overflow-scrolling: touch;
-  padding-bottom: 1rem;    /* extra breathing room below */
-}
-
-/* force the inner fb-page widget to be inline, so it can scroll */
-.facebook-feed .fb-page,
-.facebook-feed .fb-page > span {
-  display: inline-block !important;
-  width: auto !important;  /* ignore the default 340px width */
-}
-
-/* round the corners of the actual iframe */
-.fb_iframe_widget,
-.fb_iframe_widget span,
-.fb_iframe_widget span iframe {
-  border-radius: 12px !important;
-  overflow: hidden !important;
-}
-
 /* — CONTACT US — */
 .contact-us {
   text-align: center;
