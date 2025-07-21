@@ -25,18 +25,22 @@ body::before {
   pointer-events: none;
 }
 
-/* — HERO VIDEO — */
+/* HERO VIDEO */
 .hero-video {
+  position: relative;
   width: 100%;
-  overflow: hidden;       /* crop any overflow */
+  margin-top: /* same as your navbar height */ 72px;
+  overflow: hidden;
+  z-index: 1; /* underneath .navbar which is z-index:1000 */
 }
 
-.hero-video__media {
-  width: 100vw;           /* cover the viewport width */
-  min-height: 50vh;       /* optional: ensure it’s tall enough on desktop */
-  max-height: 80vh;       /* optional cap so it doesn’t dominate */
-  object-fit: cover;      /* crop to fill container */
+.hero-video iframe {
   display: block;
+  width: 100vw;
+  height: 60vh;       /* adjust this to taste (50–80vh common) */
+  min-height: 300px;  /* so it never collapses on very short screens */
+  object-fit: cover;  /* crops / scales to fill */
+  margin-left: calc((100% - 100vw) / 2); /* center if scrollbars appear */
 }
 
 /* 3. Navbar */
