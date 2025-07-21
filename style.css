@@ -365,7 +365,7 @@ body::before {
 .watch-us .video-container iframe {
   width: 100%;
   /* adjust height as needed (e.g. 500px) */
-  height: auto;
+  height: 100%;
   border: none;
   display: block;
 }
