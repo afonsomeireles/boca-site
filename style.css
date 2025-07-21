@@ -30,7 +30,7 @@ body::before {
 .hero-video {
   position: relative;
   width: 100vw;
-  height: auto;
+  height: 70vh; /* Increased from 60vh to 70vh for more height */
   min-height: 400px; /* Minimum height for smaller screens */
   max-height: 800px; /* Maximum height to prevent it from getting too tall on very large screens */
   margin: 0;
@@ -237,7 +237,7 @@ body::before {
   max-width: 900px;
   width: 100%;
   margin: 0 auto;
-  padding: 8rem 0 4rem;    /* top:8rem to clear navbar, no left/right */
+  padding: 2rem 0 4rem;    /* reduced top padding since video is now at top */
   position: relative;
 }
 
@@ -322,7 +322,7 @@ body::before {
   margin-bottom: 2rem;
 }
 
-/* the dark, semi‑transparent “card” */
+/* the dark, semi‑transparent "card" */
 .contact-card {
   max-width: 900px;
   margin: 0 auto;
@@ -358,12 +358,15 @@ body::before {
   .nav-toggle { display: flex; }
   .social-footer { bottom: 1rem; }
 }
+
 @media (max-width: 700px) {
   .logo { height: 50px; }
   .hero-video {
+    height: 50vh; /* Smaller height on tablets */
     min-height: 300px; /* Smaller minimum height on mobile */
   }
 }
+
 @media (max-width: 600px) {
   .band-intro,
   .stream-us {
@@ -384,7 +387,7 @@ body::before {
     font-size: 1rem;
   }
   .hero-video {
-    height: 70vh; /* Even smaller height on very small screens */
+    height: 40vh; /* Even smaller height on very small screens */
     min-height: 250px; /* Even smaller on very small screens */
   }
 }
