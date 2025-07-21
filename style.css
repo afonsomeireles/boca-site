@@ -30,9 +30,9 @@ body::before {
 .hero-video {
   position: relative;
   width: 100vw;
-  height: 100vh;
-  /*min-height: 400px; /* Minimum height for smaller screens */
-  /*max-height: 800px; /* Maximum height to prevent it from getting too tall on very large screens */
+  height: 100vh; /* Increased from 60vh to 70vh for more height */
+  min-height: 400px; /* Minimum height for smaller screens */
+  max-height: 800px; /* Maximum height to prevent it from getting too tall on very large screens */
   margin: 0;
   padding: 0;
   left: 50%;
@@ -72,6 +72,12 @@ body::before {
 }
 
 @media (max-width: 900px) {
+  .hero-video {
+  position: relative;
+  width: 100vw;
+  height: 70vh;
+}
+
   .hero-video iframe {
     /* pin to top‑center of the container */
     position: absolute;
