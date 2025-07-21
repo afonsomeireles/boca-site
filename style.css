@@ -81,7 +81,7 @@ body::before {
 
     /* force full container height, let width overflow and be clipped */
     height: 100%;
-    width: 177.78%;
+    width: 1770.78%;
     min-width: 100vw;
 
     /* your other rules can stay if you like */
