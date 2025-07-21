@@ -30,7 +30,7 @@ body::before {
 .hero-video {
   position: relative;
   width: 100vw;
-  height: 90vh;
+  height: 100vh;
   /*min-height: 400px; /* Minimum height for smaller screens */
   /*max-height: 800px; /* Maximum height to prevent it from getting too tall on very large screens */
   margin: 0;
@@ -81,7 +81,7 @@ body::before {
 
     /* force full container height, let width overflow and be clipped */
     height: 100%;
-    width: auto;
+    width: 177.78%;
     min-width: 100vw;
 
     /* your other rules can stay if you like */
