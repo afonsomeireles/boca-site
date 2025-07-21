@@ -491,6 +491,18 @@ body::before {
 .gig-venue { text-align: center; }
 .gig-time  { text-align: right; }
 
+.gigs-list .gig-venue a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.gigs-list .gig-venue a:hover,
+.gigs-list .gig-venue a:focus {
+  color: #C42026;
+  outline: none;
+}
+
 @media (max-width: 700px) {
   .gigs-list {
     row-gap: 0.5rem;
