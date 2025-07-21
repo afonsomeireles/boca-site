@@ -27,23 +27,35 @@ body::before {
 }
 
 /* HERO VIDEO */
+/* 1) Make the hero “wall‑to‑wall” & never shorter than 300px */
 .hero-video {
   position: relative;
-  width: 100vw;         /* real “wall‑to‑wall” width */
-  height: 60vh;         /* pick your preferred viewport‑height */
-  min-height: 400px;    /* never shorter than this (tweak as needed) */
-  overflow: hidden;     /* hide the parts that overflow */
+  width: 100%;        /* span its parent (body) */
+  max-width: none;    /* override any container limits */
+  height: 60vh;       /* adjust to taste */
+  min-height: 300px;  /* ensure a floor */
+  margin: 0;          /* no gutters */
+  overflow: hidden;   /* crop the iframe */
 }
 
+/* 2) Absolutely centre & cover‑crop the Vimeo iframe */
 .hero-video iframe {
   position: absolute;
-  top: 0;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%); /* center horizontally */
-  height: 100%;               /* always fill container height */
-  width: auto;                /* auto‑scale width to keep aspect ratio */
-  min-height: 100%;            /* but never go narrower than the container */
-  object-fit: cover;          /* crop excess sides cleanly */
+  transform: translate(-50%, -50%);
+  width: auto;         /* scale preserving aspect */
+  height: auto;
+  min-width: 100%;     /* never go narrower than container */
+  min-height: 100%;    /* never shrink below container height */
+  object-fit: cover;   /* crop off any overflow cleanly */
+  border: 0;
+}
+
+/* 3) If anything still caps it, force it with !important */
+.hero-video,
+.hero-video iframe {
+  max-width: none !important;
 }
 
 /* 3. Navbar */
