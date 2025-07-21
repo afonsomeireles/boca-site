@@ -58,8 +58,8 @@ body::before {
   left: 50%;
   transform: translate(-50%, -50%);
   /* Force minimum dimensions to ensure full coverage */
-  width: calc(100vw + 400px);
-  height: calc(100vh + 200px);
+  width: 100%;/*calc(100vw + 400px);*/
+  height: 100vh;/*calc(100vh + 200px);*/
   min-height: 100vh;
   border: 0;
   pointer-events: none;
