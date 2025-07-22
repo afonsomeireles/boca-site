@@ -202,11 +202,7 @@
   const nextBtn = document.getElementById('nextBtn');
   let index = 0;
   let files = [];
-
-  // *** CONFIGURE THESE for your repo ***
-  const githubUser = '<your-github-username>';
-  const githubRepo = '<your-repo-name>';
-  const folderPath = 'gallery';
+  let timer; // move timer declaration before use
 
   // GitHub API URL for folder contents
   const apiUrl = `https://api.github.com/repos/afonsomeireles/boca-site/contents/gallery`;
@@ -225,7 +221,7 @@
     files.forEach(name => {
       const slide = document.createElement('div');
       slide.className = 'gallery-item';
-      slide.innerHTML = `<img src="/${folderPath}/${name}" alt="${name}">`;
+      slide.innerHTML = `<img src="/gallery/${name}" alt="${name}">`;
       track.appendChild(slide);
     });
 
@@ -245,8 +241,8 @@
   prevBtn.addEventListener('click', () => showSlide(index - 1));
   nextBtn.addEventListener('click', () => showSlide(index + 1));
 
-  let timer;
   function autoSlide() {
+    clearInterval(timer);
     timer = setInterval(() => showSlide(index + 1), 5000);
   }
 
