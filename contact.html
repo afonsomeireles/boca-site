@@ -6,31 +6,62 @@
     name="viewport" 
     content="width=device-width, initial-scale=1"
   />
-  <title>BOCA – Contact Us</title>
+  <title>BOCA – Band of Consenting Adults</title>
 
-  <!-- FontAwesome (for attach icon) -->
+  <!-- FontAwesome -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
   />
 
-  <!-- Google Fonts -->
+  <!-- Google Font: Chicle -->
   <link
     href="https://fonts.googleapis.com/css2?family=Chicle&display=swap"
     rel="stylesheet"
   />
   <link
-    href="https://fonts.googleapis.com/css2?family=Cal+Sans:wght@400;700&display=swap"
-    rel="stylesheet"
-  />
+  href="https://fonts.googleapis.com/css2?family=Cal+Sans:wght@400;700&display=swap"
+  rel="stylesheet"
+/>
 
   <!-- Your main stylesheet -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- NAVBAR (same as index/gigs pages) -->
-  <header class="navbar">…</header>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <!-- white logo on transparent bg -->
+    <img
+      src="images/boca_logo_white_transparent.png"
+      alt="BOCA Logo (white)"
+      class="logo logo--light"
+    />
+    <!-- black logo on white/blurred bg -->
+    <img
+      src="images/boca_logo_black_transparent.png"
+      alt="BOCA Logo (black)"
+      class="logo logo--dark"
+    />
+
+    <!-- desktop nav -->
+    <nav>
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gigs.html">Gig Schedule</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="merch.html">Merch</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- mobile hamburger -->
+    <button class="nav-toggle" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
   <div class="mobile-menu">…</div>
 
   <!-- spacer to clear fixed navbar -->
