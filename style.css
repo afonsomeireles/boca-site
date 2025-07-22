@@ -714,15 +714,20 @@ body::before {
   pointer-events: none;
 }
 .gallery-nav button {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: rgba(0,0,0,0.5);
   border: none;
   color: #fff;
-  font-size: 2rem;
-  padding: 0.5rem;
+  font-size: 1.5rem;
   border-radius: 50%;
   pointer-events: all;
   cursor: pointer;
   transition: background 0.2s ease;
+  padding: 0;
 }
 .gallery-nav button:hover {
   background: rgba(196,32,38,0.8);
