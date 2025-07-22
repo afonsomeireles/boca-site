@@ -77,7 +77,26 @@
   <footer class="social-footer">…</footer>
 
   <!-- NAV + MOBILE TOGGLE SCRIPTS -->
-  <script>/* your existing nav toggle + scroll JS */</script>
+   <script>
+    // blur navbar on scroll
+    const nav = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 0);
+    });
+
+    // mobile menu open/close
+    const toggle = document.querySelector('.nav-toggle');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const closeBtn = document.querySelector('.mobile-menu-close');
+    toggle.addEventListener('click', () => {
+      mobileMenu.setAttribute('aria-hidden', 'false');
+      mobileMenu.classList.add('open');
+    });
+    closeBtn.addEventListener('click', () => {
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      mobileMenu.classList.remove('open');
+    });
+  </script>
 
   <!-- Attach‑button file‐count JS -->
   <script>
