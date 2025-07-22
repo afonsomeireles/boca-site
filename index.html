@@ -29,6 +29,13 @@
   <style>
     /* Gallery using CSS scroll-snap */
     .gallery-section { position: relative; margin: 4rem auto; max-width: 900px; }
+    .gallery-section h2 {
+      font-family: 'Chicle', cursive;
+      font-size: 3rem;
+      color: #fff;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
     .gallery-track {
       display: flex;
       overflow-x: auto;
@@ -37,6 +44,12 @@
       -webkit-overflow-scrolling: touch;
       padding: 1rem 0;
       gap: 0.5rem;
+      /* hide scrollbar */
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .gallery-track::-webkit-scrollbar {
+      display: none;
     }
     .gallery-item {
       scroll-snap-align: center;
