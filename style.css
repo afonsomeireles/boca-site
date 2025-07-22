@@ -609,14 +609,32 @@ body::before {
   flex-direction: row;
   gap: 0.5rem;
 }
+/* make your label look like a button */
 .attach-row label {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  background: #1e1e1e;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
   cursor: pointer;
+  font-family: 'Cal Sans', sans-serif;
+  transition: background 0.2s ease;
+}
+.attach-row label:hover,
+.attach-row label:focus {
+  background: #C42026;
 }
 .attach-row input[type="file"] {
-  flex: none;
+  position: absolute;
+  width: 0;
+  height: 0;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
 }
 
 /* file‑count text */
