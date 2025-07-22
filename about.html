@@ -117,14 +117,14 @@
   text-align: center;
 }
 .member-modal .modal-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 90vw !important;
-  max-width: none !important;
-  height: 80vh;           /* pick a height so bottom:0 works */
+  width: 90vw;
+  max-width: 900px;       /* ← hard cap */
   padding: 2rem;
+  border-radius: 12px;
+  background‐clip: padding‑box;
   box-sizing: border-box;
+  overflow: auto;         /* scrolls if content really gets tall */
+  /* remove any height, flex or justify-content rules */
 }
 .consenting-bg {
   background: #fff;
@@ -161,11 +161,11 @@
   line-height: 1.6;
 }
 .member-modal .modal-image {
-  align-self: center;     /* horizontally center */
-  margin: 0;              /* remove any default margins */
-  /* no need for object-fit here if it’s already sized */
-  height: 200px;          /* your “smaller” size */
-  /* now flexbox will shove it to the bottom */
+  display: block;
+  margin: 0 auto;        /* horizontally center */
+  height: 250px;         /* ↑ bump this up a bit */
+  width: auto;
+  object-fit: cover;
 }
 </style>
 </head>
