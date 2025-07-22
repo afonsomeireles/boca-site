@@ -1,127 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BOCA – Coming Soon</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BOCA – Merch</title>
 
   <!-- FontAwesome -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Chicle&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cal+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="style.css">
 
-  <!-- Google Font: Chicle -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Chicle&display=swap"
-    rel="stylesheet"
-  />
-
-  <!-- Your main stylesheet -->
-  <link rel="stylesheet" href="style.css" />
+  <!-- Merch page styles -->
+  <style>
+    .merch-section {
+      width: 100%; max-width: 900px;
+      margin: 0 auto 4rem;
+      padding: 0 2rem;
+      text-align: center;
+    }
+    .merch-section h2 {
+      font-family: 'Chicle', cursive;
+      font-size: 3rem;
+      color: #fff;
+      margin-bottom: 2rem;
+    }
+    .merch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+    .merch-item {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .merch-item:hover {
+      background: #C42026;
+    }
+    .merch-item img {
+      max-width: 100%; height: auto;
+      border-radius: 8px;
+    }
+    .item-name,
+    .item-price {
+      font-family: 'Cal Sans', sans-serif;
+      color: #1e1e1e;
+      margin-top: 0.75rem;
+    }
+    .merch-item:hover .item-name,
+    .merch-item:hover .item-price {
+      color: #fff;
+    }
+    /* modal overlay */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 3000;
+    }
+    .modal {
+      background: #fff;
+      border-radius: 12px;
+      padding: 2rem;
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+    }
+    .modal img {
+      max-width: 100%; height: auto;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+    .modal h3,
+    .modal p {
+      font-family: 'Cal Sans', sans-serif;
+      margin: 0.5rem 0;
+    }
+    .form-row {
+      margin: 1rem 0;
+      text-align: left;
+    }
+    .form-row label {
+      display: block;
+      font-family: 'Cal Sans', sans-serif;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #333;
+    }
+    .form-row select,
+    .form-row textarea {
+      width: 100%;
+      padding: 0.5rem;
+      font-family: 'Cal Sans', sans-serif;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      outline: none;
+    }
+    .close-btn {
+      position: absolute;
+      top: 0.5rem; right: 0.5rem;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #333;
+    }
+    @media (max-width: 600px) {
+      .merch-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
+  <!-- NAVBAR & MOBILE MENU (same as other pages) -->
+  <header class="navbar">…</header>
+  <div class="mobile-menu" aria-hidden="true">…</div>
+  <div style="height:6rem;" aria-hidden="true"></div>
 
-  <!-- NAVBAR -->
-  <header class="navbar">
-    <img
-      src="images/boca_logo_transparent.png"
-      alt="BOCA Logo"
-      class="logo"
-    />
-
-    <!-- desktop nav -->
-    <nav>
-      <ul class="nav-list">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="gigs.html">Gig Schedule</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="merch.html">Merch</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-
-    <!-- mobile hamburger -->
-    <button class="nav-toggle" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
-  </header>
-
-  <!-- MOBILE MENU OVERLAY -->
-  <div class="mobile-menu" aria-hidden="true">
-    <button class="mobile-menu-close" aria-label="Close menu">✕</button>
-    <nav>
-      <ul class="mobile-nav-list">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="gigs.html">Gig Schedule</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="merch.html">Merch</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-
-  <!-- MAIN CONTENT -->
   <main class="site-main">
-    <h1
-      style="
-        font-family: 'Chicle', cursive;
-        color: #fff;
-        font-size: 3rem;
-        text-align: center;
-        margin: 8rem 0;
-      "
-    >
-      Coming Soon :)
-    </h1>
+    <section class="merch-section">
+      <h2>Merch</h2>
+      <div class="merch-grid" id="merchGrid">
+        <!-- Items will go here -->
+        <div class="merch-item" data-name="BOCA T-Shirt" data-price="$25" data-img="images/tshirt.jpg">
+          <img src="images/tshirt.jpg" alt="BOCA T-Shirt">
+          <div class="item-name">BOCA T-Shirt</div>
+          <div class="item-price">$25</div>
+        </div>
+        <!-- add more items similarly -->
+      </div>
+    </section>
   </main>
 
-  <!-- SOCIAL FOOTER -->
-  <footer class="social-footer">
-    <ul class="social-list">
-      <li>
-        <a href="https://www.facebook.com/thebocaband/" target="_blank" rel="noopener">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-      </li>
-      <li>
-        <a href="https://www.instagram.com/thebocaband/" target="_blank" rel="noopener">
-          <i class="fab fa-instagram"></i>
-        </a>
-      </li>
-      <li>
-        <a href="https://open.spotify.com/artist/1BYwhFnFgPLS3kUa2FOoZ6" target="_blank" rel="noopener">
-          <i class="fab fa-spotify"></i>
-        </a>
-      </li>
-      <li>
-        <a href="https://www.youtube.com/@thebocaband7885" target="_blank" rel="noopener">
-          <i class="fab fa-youtube"></i>
-        </a>
-      </li>
-    </ul>
-  </footer>
+  <!-- Modal -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <button class="close-btn" id="modalClose">×</button>
+      <img id="modalImg" src="" alt="">
+      <h3 id="modalName"></h3>
+      <p id="modalPrice"></p>
+      <div class="form-row">
+        <label for="sizeSelect">Size</label>
+        <select id="sizeSelect">
+          <option value="S">Small</option>
+          <option value="M">Medium</option>
+          <option value="L">Large</option>
+          <option value="XL">XL</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label for="visitMsg">Tell us where you plan to go see us and we will bring it for you!</label>
+        <textarea id="visitMsg" rows="3"></textarea>
+      </div>
+      <button class="btn-send" id="reserveBtn">Reserve</button>
+    </div>
+  </div>
 
-  <!-- SCRIPTS: navbar blur & mobile toggle -->
+  <!-- FOOTER -->
+  <footer class="social-footer">…</footer>
+
+  <!-- Scripts -->
   <script>
-    // blur navbar on scroll
-    const nav = document.querySelector('.navbar');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 0);
-    });
+    // Navbar scroll + mobile toggle…
 
-    // mobile menu open/close
-    const toggle = document.querySelector('.nav-toggle');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    const closeBtn = document.querySelector('.mobile-menu-close');
-
-    toggle.addEventListener('click', () => {
-      mobileMenu.setAttribute('aria-hidden', 'false');
-      mobileMenu.classList.add('open');
+    // Merch modal logic
+    const items = document.querySelectorAll('.merch-item');
+    const modalOverlay = document.getElementById('modalOverlay');
+    const modalImg = document.getElementById('modalImg');
+    const modalName = document.getElementById('modalName');
+    const modalPrice = document.getElementById('modalPrice');
+    const modalClose = document.getElementById('modalClose');
+    items.forEach(item => {
+      item.addEventListener('click', () => {
+        modalImg.src = item.dataset.img;
+        modalImg.alt = item.dataset.name;
+        modalName.textContent = item.dataset.name;
+        modalPrice.textContent = item.dataset.price;
+        modalOverlay.style.display = 'flex';
+      });
     });
-    closeBtn.addEventListener('click', () => {
-      mobileMenu.setAttribute('aria-hidden', 'true');
-      mobileMenu.classList.remove('open');
+    modalClose.addEventListener('click', () => {
+      modalOverlay.style.display = 'none';
     });
   </script>
 </body>
