@@ -55,12 +55,20 @@
   overflow: hidden;
   margin-bottom: 1rem;
 }
+.member-image-wrapper img {
+  /* fill the wrapper and crop */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 /* gradient overlay */
 .member-image-wrapper::after {
   content: "";
   position: absolute;
   bottom: 0;
   left: 0;
+  right: 0;
   width: 100%;
   height: 50%;   /* from bottom up to halfway */
   background: linear-gradient(
