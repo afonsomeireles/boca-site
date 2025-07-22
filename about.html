@@ -40,6 +40,13 @@
   position: relative;
   padding: 0 1rem;      /* optional side‑padding */
 }
+.members-header {
+  font-family: 'Chicle', cursive;
+  font-size: 3rem;
+  text-align: center;
+  color: #fff;
+  margin: 3rem 0 2rem;
+}
 .member-image-wrapper {
   width: 100%;
   max-width: 600px;    /* don’t let it get crazily wide */
@@ -47,6 +54,21 @@
   border-radius: 12px;
   overflow: hidden;
   margin-bottom: 1rem;
+}
+/* gradient overlay */
+.member-image-wrapper::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  bottom: 0;
+  height: 50%;  /* covers bottom half */
+  background: linear-gradient(
+    to top,
+    rgba(30, 30, 30, 0.7) 0%,
+    rgba(30, 30, 30, 0) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
 }
 /* make the img fill that box fully and crop */
 .member-image {
@@ -237,9 +259,7 @@ BOCA is more than just a band — we’re all about connection. With each other,
         </div>
       </div>
     </section>
-    <section class="about-us">
-      <h2 class="section-title">The Consenting Adults</h2>
-    </section>
+    <h2 class="members-header">The Consenting Adults</h2>
 
     <!-- ABOUT PAGE: Bass Player Section -->
 <section class="member-section" id="bass-player">
