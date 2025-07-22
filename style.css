@@ -705,8 +705,8 @@ body::before {
 .about-text {
   font-family: 'Cal Sans', sans-serif;
   color: #1e1e1e;
-  font-size: 1.25rem;
-  line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1;
   max-width: 800px;
   text-align: left;
 }
