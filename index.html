@@ -122,6 +122,17 @@
       </div>
     </section>
 
+    <section class="gallery-section">
+      <h2>Gallery</h2>
+      <div class="gallery-track" id="galleryTrack">
+        <!-- images will be injected here -->
+      </div>
+      <div class="gallery-nav">
+        <button id="prevBtn" aria-label="Previous"><i class="fas fa-angle-left"></i></button>
+        <button id="nextBtn" aria-label="Next"><i class="fas fa-angle-right"></i></button>
+      </div>
+    </section>
+
     <!-- CONTACT US -->
     <section class="contact-us">
       <h2>Contact Us</h2>
@@ -183,6 +194,46 @@
       mobileMenu.setAttribute('aria-hidden', 'true');
       mobileMenu.classList.remove('open');
     });
+
+  // Gallery carousel logic
+    (function() {
+      const track = document.getElementById('galleryTrack');
+      const prev = document.getElementById('prevBtn');
+      const next = document.getElementById('nextBtn');
+      let index = 0;
+      let slides = [];
+
+      // Load list of images from gallery.json
+      fetch('gallery.json')
+        .then(res => res.json())
+        .then(files => {
+          slides = files;
+          files.forEach(src => {
+            const div = document.createElement('div');
+            div.className = 'gallery-item';
+            div.innerHTML = `<img src="gallery/${src}" alt="Gallery image">`;
+            track.appendChild(div);
+          });
+          // start auto-slide
+          autoSlide();
+        });
+
+      function showSlide(i) {
+        const count = slides.length;
+        index = (i + count) % count;
+        track.style.transform = `translateX(-${index * 100}%)`;
+      }
+
+      prev.addEventListener('click', () => showSlide(index - 1));
+      next.addEventListener('click', () => showSlide(index + 1));
+
+      let timer;
+      function autoSlide() {
+        timer = setInterval(() => showSlide(index + 1), 5000);
+      }
+      track.addEventListener('mouseenter', () => clearInterval(timer));
+      track.addEventListener('mouseleave', () => autoSlide());
+    })();
   </script>
 </body>
 </html>
