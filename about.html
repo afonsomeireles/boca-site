@@ -2,8 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BOCA – Coming Soon</title>
+  <meta 
+    name="viewport" 
+    content="width=device-width, initial-scale=1"
+  />
+  <title>BOCA – Band of Consenting Adults</title>
 
   <!-- FontAwesome -->
   <link
@@ -16,6 +19,10 @@
     href="https://fonts.googleapis.com/css2?family=Chicle&display=swap"
     rel="stylesheet"
   />
+  <link
+  href="https://fonts.googleapis.com/css2?family=Cal+Sans:wght@400;700&display=swap"
+  rel="stylesheet"
+/>
 
   <!-- Your main stylesheet -->
   <link rel="stylesheet" href="style.css" />
@@ -24,10 +31,17 @@
 
   <!-- NAVBAR -->
   <header class="navbar">
+    <!-- white logo on transparent bg -->
     <img
-      src="images/boca_logo_transparent.png"
-      alt="BOCA Logo"
-      class="logo"
+      src="images/boca_logo_white_transparent.png"
+      alt="BOCA Logo (white)"
+      class="logo logo--light"
+    />
+    <!-- black logo on white/blurred bg -->
+    <img
+      src="images/boca_logo_black_transparent.png"
+      alt="BOCA Logo (black)"
+      class="logo logo--dark"
     />
 
     <!-- desktop nav -->
@@ -43,11 +57,11 @@
 
     <!-- mobile hamburger -->
     <button class="nav-toggle" aria-label="Open menu">
-      <span></span><span></span><span></span>
+      <span></span>
+      <span></span>
+      <span></span>
     </button>
   </header>
-
-  <!-- MOBILE MENU OVERLAY -->
   <div class="mobile-menu" aria-hidden="true">
     <button class="mobile-menu-close" aria-label="Close menu">✕</button>
     <nav>
@@ -61,19 +75,23 @@
     </nav>
   </div>
 
-  <!-- MAIN CONTENT -->
+
+  <!-- spacer to clear fixed navbar -->
+  <div style="height:6rem;" aria-hidden="true"></div>
+
   <main class="site-main">
-    <h1
-      style="
-        font-family: 'Chicle', cursive;
-        color: #fff;
-        font-size: 3rem;
-        text-align: center;
-        margin: 8rem 0;
-      "
-    >
-      Coming Soon :)
-    </h1>
+
+    <!-- ABOUT US -->
+    <section class="about-us">
+      <h2 class="section-title">BOCA Band of Consenting Adults</h2>
+      <div class="about-card">
+        <img src="images/band_photo.png" alt="Band photo" class="band-photo" />
+        <div class="about-text">
+          <p>Formed in 2020, BOCA (Band of Consenting Adults) delivers an electrifying blend of rock, pop, and soul. Our energetic live shows have taken us from local bars to major festivals, captivating audiences with tight harmonies and unforgettable performances. We believe in pushing musical boundaries while keeping our roots firmly planted in classic grooves. Whether it's an intimate acoustic set or a full‑throttle stadium show, BOCA brings the party wherever we go.</p>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- SOCIAL FOOTER -->
@@ -102,8 +120,8 @@
     </ul>
   </footer>
 
-  <!-- SCRIPTS: navbar blur & mobile toggle -->
-  <script>
+  <!-- NAV + MOBILE TOGGLE SCRIPTS -->
+   <script>
     // blur navbar on scroll
     const nav = document.querySelector('.navbar');
     window.addEventListener('scroll', () => {
@@ -114,7 +132,6 @@
     const toggle = document.querySelector('.nav-toggle');
     const mobileMenu = document.querySelector('.mobile-menu');
     const closeBtn = document.querySelector('.mobile-menu-close');
-
     toggle.addEventListener('click', () => {
       mobileMenu.setAttribute('aria-hidden', 'false');
       mobileMenu.classList.add('open');
