@@ -33,13 +33,14 @@
   text-align: center;
 }
 .member-container {
-  max-width: 600px;
+  width: 90vw;
+  max-width: 900px;
   margin: 0 auto;
   position: relative;
 }
 .member-image-wrapper {
   position: relative;
-  height: 400px;           /* crop height to hide legs */
+  border-radius: 12px;
   overflow: hidden;
 }
 .member-image {
@@ -114,6 +115,10 @@
   overflow: auto;
   text-align: center;
 }
+.member-modal .modal-content {
+  width: 90vw !important;
+  max-width: none !important;
+}
 .consenting-bg {
   background: #fff;
   color: #000;
@@ -148,6 +153,11 @@
   font-size: 1rem;
   line-height: 1.6;
 }
+.member-modal .modal-image {
+  height: 200px;      /* down from 300px */
+  max-width: 100%;    /* keep aspect ratio, don't overflow */
+  object-fit: cover;
+} 
 </style>
 </head>
 <body>
