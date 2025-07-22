@@ -124,7 +124,51 @@
 </head>
 <body>
   <!-- NAVBAR & MOBILE MENU (same as other pages) -->
-  <header class="navbar">…</header>
+  <header class="navbar">
+    <!-- white logo on transparent bg -->
+    <img
+      src="images/boca_logo_white_transparent.png"
+      alt="BOCA Logo (white)"
+      class="logo logo--light"
+    />
+    <!-- black logo on white/blurred bg -->
+    <img
+      src="images/boca_logo_black_transparent.png"
+      alt="BOCA Logo (black)"
+      class="logo logo--dark"
+    />
+
+    <!-- desktop nav -->
+    <nav>
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gigs.html">Gig Schedule</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="merch.html">Merch</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- mobile hamburger -->
+    <button class="nav-toggle" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+  <div class="mobile-menu" aria-hidden="true">
+    <button class="mobile-menu-close" aria-label="Close menu">✕</button>
+    <nav>
+      <ul class="mobile-nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gigs.html">Gig Schedule</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="merch.html">Merch</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+
   <div class="mobile-menu" aria-hidden="true">…</div>
   <div style="height:6rem;" aria-hidden="true"></div>
 
