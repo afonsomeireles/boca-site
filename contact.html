@@ -42,7 +42,11 @@
     <section class="contact-form-section">
       <h2>Contact Us</h2>
       <div class="form-container">
-        <form id="contact-form" method="POST" enctype="multipart/form-data" action="/.netlify/functions/sendContact">
+        <form id="contact-form" method="POST" enctype="multipart/form-data" action="https://formsubmit.co/afonsomeirelesgoncalves@gmail.com">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_subject" value="New contact from BOCA site">
+          <input type="hidden" name="_next" value="https://yourdomain.com/thankyou.html">
+          <input type="hidden" name="_honeypot" value="bot-field">
           <div class="form-row">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" placeholder="Your name" />
