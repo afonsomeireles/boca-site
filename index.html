@@ -232,7 +232,7 @@
     function showSlide(i) {
       if (!files.length) return;
       index = (i + files.length) % files.length;
-      track.style.transform = `translateX(-${index * 100}%)`;
+      track.style.transform = `translateX(calc(-${index * 100}% + ${(track.clientWidth - track.children[index].clientWidth) / 2}px))`;
       // toggle active class
       const items = track.querySelectorAll('.gallery-item');
       items.forEach((el, idx) => el.classList.toggle('active', idx === index));
@@ -250,5 +250,6 @@
     track.addEventListener('mouseleave', () => autoSlide());
   })();
 </script>
+
 </body>
 </html>
