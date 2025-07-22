@@ -40,19 +40,28 @@
       transition: background 0.3s ease;
       text-align: center;
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     .merch-item:hover {
       background: #C42026;
     }
     .merch-item img {
-      max-width: 100%; height: auto;
+      width: auto;
+      height: 250px;            /* uniform image height */
+      object-fit: contain;      /* preserve aspect ratio */
       border-radius: 8px;
     }
     .item-name,
     .item-price {
-      font-family: 'Cal Sans', sans-serif;
+      font-family: 'Chicle', cursive;  /* use Chicle for names */
       color: #1e1e1e;
       margin-top: 0.75rem;
+    }
+    .item-price {
+      font-weight: 700;
+      font-family: 'Cal Sans', sans-serif; /* price in Cal Sans bold */
     }
     .merch-item:hover .item-name,
     .merch-item:hover .item-price {
@@ -77,15 +86,19 @@
       width: 90%;
       text-align: center;
       position: relative;
+      font-family: 'Cal Sans', sans-serif;
     }
     .modal img {
       max-width: 100%; height: auto;
       border-radius: 8px;
       margin-bottom: 1rem;
     }
-    .modal h3,
+    .modal h3 {
+      font-family: 'Chicle', cursive;
+      font-size: 1.75rem;
+      margin: 0.5rem 0;
+    }
     .modal p {
-      font-family: 'Cal Sans', sans-serif;
       margin: 0.5rem 0;
     }
     .form-row {
@@ -103,10 +116,10 @@
     .form-row textarea {
       width: 100%;
       padding: 0.5rem;
-      font-family: 'Cal Sans', sans-serif;
       border: 1px solid #ccc;
       border-radius: 6px;
       outline: none;
+      font-family: 'Cal Sans', sans-serif;
     }
     .close-btn {
       position: absolute;
