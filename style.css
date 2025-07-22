@@ -672,3 +672,52 @@ body::before {
     width: 100%;
   }
 }
+
+/* — ABOUT US SECTION — */
+.about-us {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 4rem;
+  padding: 0 2rem;
+  text-align: center;
+}
+.section-title {
+  font-family: 'Chicle', cursive;
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 2rem;
+}
+.about-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.band-photo {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 12px;
+}
+.about-text {
+  font-family: 'Cal Sans', sans-serif;
+  color: #1e1e1e;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  max-width: 800px;
+  text-align: left;
+}
+@media (max-width: 700px) {
+  .about-card {
+    padding: 1.5rem;
+  }
+  .section-title {
+    font-size: 2.5rem;
+  }
+  .about-text {
+    font-size: 1rem;
+  }
+}
