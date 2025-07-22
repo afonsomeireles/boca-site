@@ -195,61 +195,49 @@
       mobileMenu.classList.remove('open');
     });
 
-   // Gallery carousel logic (GitHub API)
-  (async function loadGallery() {
-    const track   = document.getElementById('galleryTrack');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    let   index   = 0;
-    let   files   = [];
-    let   timer; // declared before use
+// Gallery carousel logic
+    (async function loadGallery() {
+      const track = document.getElementById('galleryTrack');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      let index = 0, files = [], timer;
+      const apiUrl = 'https://api.github.com/repos/afonsomeireles/boca-site/contents/gallery';
+      try {
+        const res = await fetch(apiUrl);
+        const data = await res.json();
+        files = data.filter(f => /\.(jpe?g|png|gif|webp)$/i.test(f.name)).map(f => f.name);
+        files.forEach(name => {
+          const slide = document.createElement('div');
+          slide.className = 'gallery-item';
+          slide.innerHTML = `<img src="/gallery/${name}" alt="${name}">`;
+          track.appendChild(slide);
+        });
+        showSlide(0);
+        autoSlide();
+      } catch (err) {
+        console.error(err);
+      }
 
-    // GitHub repo config
-    const githubUser = 'afonsomeireles';
-    const githubRepo = 'boca-site';
-    const folderPath = 'gallery';
-    const apiUrl = `https://api.github.com/repos/${githubUser}/${githubRepo}/contents/${folderPath}`;
+      function showSlide(i) {
+        if (!files.length) return;
+        index = (i + files.length) % files.length;
+        const offset = (track.clientWidth - track.children[index].clientWidth) / 2;
+        track.style.transform = `translateX(calc(-${index * track.clientWidth}px + ${offset}px))`;
+        track.querySelectorAll('.gallery-item').forEach((el, idx) => el.classList.toggle('active', idx === index));
+      }
 
-    try {
-      const res = await fetch(apiUrl);
-      if (!res.ok) throw new Error(`GitHub API error: ${res.status}`);
-      const data = await res.json();
-      files = data.filter(f => /\.(jpe?g|png|gif|webp)$/i.test(f.name)).map(f => f.name);
+      prevBtn.addEventListener('click', () => showSlide(index - 1));
+      nextBtn.addEventListener('click', () => showSlide(index + 1));
 
-      files.forEach(name => {
-        const slide = document.createElement('div');
-        slide.className = 'gallery-item';
-        slide.innerHTML = `<img src="/${folderPath}/${name}" alt="${name}">`;
-        track.appendChild(slide);
-      });
+      function autoSlide() {
+        clearInterval(timer);
+        timer = setInterval(() => showSlide(index + 1), 5000);
+      }
 
-      showSlide(0);
-      autoSlide();
-    } catch (err) {
-      console.error(err);
-    }
-
-    function showSlide(i) {
-      if (!files.length) return;
-      index = (i + files.length) % files.length;
-      track.style.transform = `translateX(calc(-${index * 100}% + ${(track.clientWidth - track.children[index].clientWidth) / 2}px))`;
-      // toggle active class
-      const items = track.querySelectorAll('.gallery-item');
-      items.forEach((el, idx) => el.classList.toggle('active', idx === index));
-    }
-
-    prevBtn.addEventListener('click', () => showSlide(index - 1));
-    nextBtn.addEventListener('click', () => showSlide(index + 1));
-
-    function autoSlide() {
-      clearInterval(timer);
-      timer = setInterval(() => showSlide(index + 1), 5000);
-    }
-
-    track.addEventListener('mouseenter', () => clearInterval(timer));
-    track.addEventListener('mouseleave', () => autoSlide());
-  })();
-</script>
+      track.addEventListener('mouseenter', () => clearInterval(timer));
+      track.addEventListener('mouseleave', () => autoSlide());
+    })();
+  </script>
 
 </body>
 </html>
