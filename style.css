@@ -707,7 +707,8 @@ body::before {
 .gallery-nav {
   position: absolute;
   top: 50%;
-  width: 100%;
+  left: 1rem;
+  right: 1rem;
   display: flex;
   justify-content: space-between;
   transform: translateY(-50%);
