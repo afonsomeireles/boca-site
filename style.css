@@ -696,9 +696,11 @@ body::before {
   gap: 0.5rem;
 }
 .gallery-item {
-  flex: 0 0 100%;      /* full-width slide */
+  /* adjust this percentage (e.g. 70% or 80%) to control peek of neighbors */
+  flex: 0 0 70%;
+  margin: 0 0.25rem;
   box-sizing: border-box;
-  opacity: 0.5;        /* dim by default */
+  opacity: 0.5;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 .gallery-item.active {
@@ -710,6 +712,8 @@ body::before {
   height: 300px;
   object-fit: contain;
   border-radius: 12px;
+  display: block;
+  margin: 0 auto;
 }
 .gallery-nav {
   position: absolute;
@@ -727,7 +731,7 @@ body::before {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   border: none;
   color: #fff;
   font-size: 1.5rem;
@@ -738,13 +742,12 @@ body::before {
   padding: 0;
 }
 .gallery-nav button:hover {
-  background: rgba(196,32,38,0.8);
+  background: rgba(196, 32, 38, 0.8);
 }
 
 @media (max-width: 600px) {
   .gallery-item {
-    /* still full width on mobile */
+    flex: 0 0 85%; /* closer to full on small screens */
+    margin: 0 0.125rem;
   }
 }
-
-
