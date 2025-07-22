@@ -392,10 +392,10 @@ body::before {
 }
 
 .contact-card p {
-    font-family: 'Chicle', cursive;
+  font-family: 'Cal Sans', sans-serif;
   color: #1e1e1e;
   font-size: 1.5rem;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.6;
 }
 
