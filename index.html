@@ -195,60 +195,60 @@
       mobileMenu.classList.remove('open');
     });
 
-  // Gallery carousel logig
-(async function loadGallery() {
-  const track = document.getElementById('galleryTrack');
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
-  let index = 0;
-  let files = [];
-  let timer; // move timer declaration before use
+   // Gallery carousel logic (GitHub API)
+  (async function loadGallery() {
+    const track   = document.getElementById('galleryTrack');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    let   index   = 0;
+    let   files   = [];
+    let   timer; // declared before use
 
-  // GitHub API URL for folder contents
-  const apiUrl = `https://api.github.com/repos/afonsomeireles/boca-site/contents/gallery`;
+    // GitHub repo config
+    const githubUser = 'afonsomeireles';
+    const githubRepo = 'boca-site';
+    const folderPath = 'gallery';
+    const apiUrl = `https://api.github.com/repos/${githubUser}/${githubRepo}/contents/${folderPath}`;
 
-  try {
-    const res = await fetch(apiUrl);
-    if (!res.ok) throw new Error(`GitHub API error: ${res.status}`);
-    const data = await res.json();
+    try {
+      const res = await fetch(apiUrl);
+      if (!res.ok) throw new Error(`GitHub API error: ${res.status}`);
+      const data = await res.json();
+      files = data.filter(f => /\.(jpe?g|png|gif|webp)$/i.test(f.name)).map(f => f.name);
 
-    // Filter to image files only
-    files = data
-      .filter(f => /\.(jpe?g|png|gif|webp)$/i.test(f.name))
-      .map(f => f.name);
+      files.forEach(name => {
+        const slide = document.createElement('div');
+        slide.className = 'gallery-item';
+        slide.innerHTML = `<img src="/${folderPath}/${name}" alt="${name}">`;
+        track.appendChild(slide);
+      });
 
-    // Build and append slides
-    files.forEach(name => {
-      const slide = document.createElement('div');
-      slide.className = 'gallery-item';
-      slide.innerHTML = `<img src="/gallery/${name}" alt="${name}">`;
-      track.appendChild(slide);
-    });
+      showSlide(0);
+      autoSlide();
+    } catch (err) {
+      console.error(err);
+    }
 
-    // Show first and start autoplay
-    showSlide(0);
-    autoSlide();
-  } catch (err) {
-    console.error(err);
-  }
+    function showSlide(i) {
+      if (!files.length) return;
+      index = (i + files.length) % files.length;
+      track.style.transform = `translateX(-${index * 100}%)`;
+      // toggle active class
+      const items = track.querySelectorAll('.gallery-item');
+      items.forEach((el, idx) => el.classList.toggle('active', idx === index));
+    }
 
-  function showSlide(i) {
-    if (!files.length) return;
-    index = (i + files.length) % files.length;
-    track.style.transform = `translateX(-${index * 100}%)`;
-  }
+    prevBtn.addEventListener('click', () => showSlide(index - 1));
+    nextBtn.addEventListener('click', () => showSlide(index + 1));
 
-  prevBtn.addEventListener('click', () => showSlide(index - 1));
-  nextBtn.addEventListener('click', () => showSlide(index + 1));
+    function autoSlide() {
+      clearInterval(timer);
+      timer = setInterval(() => showSlide(index + 1), 5000);
+    }
 
-  function autoSlide() {
-    clearInterval(timer);
-    timer = setInterval(() => showSlide(index + 1), 5000);
-  }
-
-  track.addEventListener('mouseenter', () => clearInterval(timer));
-  track.addEventListener('mouseleave', () => autoSlide());
-})();
+    track.addEventListener('mouseenter', () => clearInterval(timer));
+    track.addEventListener('mouseleave', () => autoSlide());
+  })();
 </script>
 </body>
 </html>
