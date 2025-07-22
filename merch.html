@@ -260,7 +260,26 @@
 
   <!-- Scripts -->
   <script>
-    // Navbar scroll + mobile toggle…
+    // blur navbar on scroll
+    const nav = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 0);
+    });
+
+    // mobile menu open/close
+    const toggle = document.querySelector('.nav-toggle');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const closeBtn = document.querySelector('.mobile-menu-close');
+    toggle.addEventListener('click', () => {
+      mobileMenu.setAttribute('aria-hidden', 'false');
+      mobileMenu.classList.add('open');
+    });
+    closeBtn.addEventListener('click', () => {
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      mobileMenu.classList.remove('open');
+    });
+  </script>
+  <script>
 
     // Merch modal logic
     const items = document.querySelectorAll('.merch-item');
