@@ -70,6 +70,31 @@ body::before {
   max-width: none !important;
 }
 
+@media (max-width: 1400px) {
+  .hero-video {
+  position: relative;
+  width: 100vw;
+  height: 70vh;
+}
+
+  .hero-video iframe {
+    /* pin to top‑center of the container */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    /* force full container height, let width overflow and be clipped */
+    height: 100%;
+    width: 250%;
+    min-width: 100vw;
+
+    /* your other rules can stay if you like */
+    border: 0;
+    pointer-events: none;
+  }
+}
+
 @media (max-width: 900px) {
   .hero-video {
   position: relative;
