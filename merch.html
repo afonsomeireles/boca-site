@@ -220,26 +220,46 @@
   enctype="multipart/form-data"
 >
   <!-- ─── Hidden FormSubmit fields ─── -->
-  <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" name="_subject" value="New merch reservation">
-  <input type="hidden" name="_next" value="https://thebocaband.com/thankyou.html">
-  <input type="hidden" name="_honeypot" value="bot-field">
+  <input type="hidden" name="_captcha"   value="false">
+  <input type="hidden" name="_subject"   value="New merch reservation">
+  <input type="hidden" name="_next"      value="https://thebocaband.com/thankyou.html">
+  <input type="hidden" name="_honeypot"  value="bot-field">
 
-  <!-- ─── Your modal UI ─── -->
   <div class="modal-overlay" id="modalOverlay">
     <div class="modal">
       <button type="button" class="close-btn" id="modalClose">×</button>
 
-      <!-- store the chosen product & price in hidden fields -->
-      <input type="hidden" name="product" id="modalProduct">
-      <input type="hidden" name="price"   id="modalPriceInput">
+      <!-- Hidden product/price metadata -->
+      <input type="hidden" name="product"        id="modalProduct">
+      <input type="hidden" name="price"          id="modalPriceInput">
 
-      <!-- the image & display-only name/price -->
-      <img    id="modalImg" src="" alt="" />
-      <h3    id="modalName"></h3>
-      <p     id="modalPrice"></p>
+      <!-- Visual preview -->
+      <img id="modalImg" src="" alt="" />
+      <h3 id="modalName"></h3>
+      <p id="modalPrice"></p>
 
-      <!-- size selector -->
+      <!-- ─── NEW: Name & Phone Fields ─── -->
+      <div class="form-row">
+        <label for="resName">Name <span class="required">*</span></label>
+        <input
+          type="text"
+          id="resName"
+          name="name"
+          placeholder="Your full name"
+          required
+        />
+      </div>
+      <div class="form-row">
+        <label for="resPhone">Phone</label>
+        <input
+          type="tel"
+          id="resPhone"
+          name="phone"
+          placeholder="(123) 456‑7890"
+        />
+      </div>
+
+      <!-- Size selector -->
       <div class="form-row">
         <label for="sizeSelect">Size</label>
         <select id="sizeSelect" name="size" required>
@@ -251,7 +271,7 @@
         </select>
       </div>
 
-      <!-- custom message -->
+      <!-- Custom message -->
       <div class="form-row">
         <label for="visitMsg">
           Tell us where you plan to see us and we’ll bring it for you!
@@ -259,7 +279,7 @@
         <textarea id="visitMsg" name="message" rows="3"></textarea>
       </div>
 
-      <!-- submit button -->
+      <!-- Submit -->
       <button type="submit" class="btn-send" id="reserveBtn">
         Reserve
       </button>
