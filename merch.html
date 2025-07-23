@@ -149,13 +149,13 @@
   }
   .form-row.form-row--half-group .form-field {
     /* no grow, size to contents */
-    flex: 0 0 auto;
+    flex: 1 1 50%;
     min-width: 0;
   }
   .form-row.form-row--half-group .form-field input,
   .form-row.form-row--half-group .form-field select {
     /* intrinsic sizing with bounds */
-    width: auto;
+    width: 100%;
     min-width: 6ch;      /* at least 6 characters */
     max-width: 12ch;     /* no wider than 12 characters */
     padding: 0.5rem;
