@@ -236,8 +236,8 @@
       <button type="button" class="close-btn" id="modalClose">×</button>
 
       <!-- Hidden product/price metadata -->
-      <input type="hidden" name="product"        id="modalProduct">
-      <input type="hidden" name="price"          id="modalPriceInput">
+      <input type="hidden" name="Product"        id="modalProduct">
+      <input type="hidden" name="Price"          id="modalPriceInput">
 
       <!-- Visual preview -->
       <img id="modalImg" src="" alt="" />
@@ -250,8 +250,8 @@
         <input
           type="text"
           id="resName"
-          name="name"
-          placeholder="Your full name"
+          name="Name"
+          placeholder="Your name"
           required
         />
       </div>
@@ -260,7 +260,7 @@
         <input
           type="tel"
           id="resPhone"
-          name="phone"
+          name="Phone"
           placeholder="(123) 456‑7890"
         />
       </div>
@@ -282,7 +282,7 @@
         <label for="visitMsg">
           Tell us where you plan to see us and we’ll bring it for you!
         </label>
-        <textarea id="visitMsg" name="message" rows="3"></textarea>
+        <textarea id="visitMsg" name="Message" rows="3"></textarea>
       </div>
 
       <!-- Submit -->
@@ -349,14 +349,21 @@
     const modalName = document.getElementById('modalName');
     const modalPrice = document.getElementById('modalPrice');
     const modalClose = document.getElementById('modalClose');
+    const reserveSubject   = document.getElementById('reserveSubject');
+    const reserveProduct   = document.getElementById('reserveProduct');
+    const reservePrice     = document.getElementById('reservePrice');
     items.forEach(item => {
       item.addEventListener('click', () => {
+        const name  = item.dataset.name;
+        const price = item.dataset.price;
         modalImg.src = item.dataset.img;
         modalImg.alt = item.dataset.name;
         modalName.textContent = item.dataset.name;
         modalPrice.textContent = item.dataset.price;
         reserveSubject.value = 
       `New merch reservation: ${item.dataset.name}`;
+        reserveProduct.value = name;
+        reservePrice.value   = price;
         modalOverlay.style.display = 'flex';
       });
     });
