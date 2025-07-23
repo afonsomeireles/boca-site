@@ -212,29 +212,60 @@
     </section>
   </main>
 
-  <!-- Modal -->
+  <!-- Modal / Reservation Form -->
+<form
+  id="reserve-form"
+  method="POST"
+  action="https://formsubmit.co/4898b9570421014ad4b544491ba36abc"
+  enctype="multipart/form-data"
+>
+  <!-- ─── Hidden FormSubmit fields ─── -->
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_subject" value="New merch reservation">
+  <input type="hidden" name="_next" value="https://thebocaband.com/thankyou.html">
+  <input type="hidden" name="_honeypot" value="bot-field">
+
+  <!-- ─── Your modal UI ─── -->
   <div class="modal-overlay" id="modalOverlay">
     <div class="modal">
-      <button class="close-btn" id="modalClose">×</button>
-      <img id="modalImg" src="" alt="">
-      <h3 id="modalName"></h3>
-      <p id="modalPrice"></p>
+      <button type="button" class="close-btn" id="modalClose">×</button>
+
+      <!-- store the chosen product & price in hidden fields -->
+      <input type="hidden" name="product" id="modalProduct">
+      <input type="hidden" name="price"   id="modalPriceInput">
+
+      <!-- the image & display-only name/price -->
+      <img    id="modalImg" src="" alt="" />
+      <h3    id="modalName"></h3>
+      <p     id="modalPrice"></p>
+
+      <!-- size selector -->
       <div class="form-row">
         <label for="sizeSelect">Size</label>
-        <select id="sizeSelect">
+        <select id="sizeSelect" name="size" required>
+          <option value="" disabled selected>Choose a size…</option>
           <option value="S">Small</option>
           <option value="M">Medium</option>
           <option value="L">Large</option>
           <option value="XL">XL</option>
         </select>
       </div>
+
+      <!-- custom message -->
       <div class="form-row">
-        <label for="visitMsg">Tell us where you plan to go see us and we will bring it for you!</label>
-        <textarea id="visitMsg" rows="3"></textarea>
+        <label for="visitMsg">
+          Tell us where you plan to see us and we’ll bring it for you!
+        </label>
+        <textarea id="visitMsg" name="message" rows="3"></textarea>
       </div>
-      <button class="btn-send" id="reserveBtn">Reserve</button>
+
+      <!-- submit button -->
+      <button type="submit" class="btn-send" id="reserveBtn">
+        Reserve
+      </button>
     </div>
   </div>
+</form>
 
   <!-- FOOTER -->
     <footer class="social-footer">
