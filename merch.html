@@ -157,6 +157,26 @@
   box-sizing:  border-box !important;
   max-width:   none !important;
 }
+.modal .form-row.form-row--half-group {
+  display:       flex !important;
+  flex-wrap:     nowrap !important;
+  align-items:   flex-start !important;
+  gap:           0.5rem !important;
+}
+
+.modal .form-row.form-row--half-group > .form-field {
+  flex:       1 1 0 !important;
+  min-width:  0 !important;
+}
+
+.modal .form-row.form-row--half-group
+      > .form-field input,
+.modal .form-row.form-row--half-group
+      > .form-field select {
+  width:        100% !important;
+  box-sizing:   border-box !important;
+  max-width:    none !important;
+}
   </style>
 </head>
 <body>
