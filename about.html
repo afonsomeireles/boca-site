@@ -6,8 +6,8 @@
     name="viewport" 
     content="width=device-width, initial-scale=1"
   />
-  <title>BOCA – Band of Consenting Adults</title>
-  <link rel="icon" href="images/favicon.svg" sizes="180x180" type="image/svg">
+  <title>BOCA – Band of Consenting Adults</title>
+  <link rel="icon" href="images/favicon.svg" sizes="180x180" type="image/svg" />
 
   <!-- FontAwesome -->
   <link
@@ -15,532 +15,404 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
   />
 
-  <!-- Google Font: Chicle -->
+  <!-- Google Fonts -->
   <link
     href="https://fonts.googleapis.com/css2?family=Chicle&display=swap"
     rel="stylesheet"
   />
   <link
-  href="https://fonts.googleapis.com/css2?family=Cal+Sans:wght@400;700&display=swap"
-  rel="stylesheet"
-/>
+    href="https://fonts.googleapis.com/css2?family=Cal+Sans:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
 
-  <!-- Your main stylesheet -->
-  <link rel="stylesheet" href="style.css" />
   <style>
-.member-section {
-  position: relative;
-  padding: 4rem 2rem;
-  text-align: center;
-}
-.member-container {
-  /* remove the 90vw hack */
-  width: 100%;          /* fill the parent .site-main */
-  max-width: 600px;     /* or whatever max you want */
-  margin: 0 auto;       /* center it */
-  position: relative;
-  padding: 0 1rem;      /* optional side‑padding */
-}
-.members-header {
-  font-family: 'Chicle', cursive;
-  font-size: 3rem;
-  text-align: center;
-  color: #fff;
-  margin: 0;
-  padding: 3rem 0 1rem;
-}
-.member-image-wrapper {
-  position: relative; 
-  width: 100%;
-  max-width: 600px;    /* don’t let it get crazily wide */
-  aspect-ratio: 3 / 4; /* width : height = 3 : 4 */
-  border-radius: 12px;
-  overflow: hidden;
-  margin-bottom: 1rem;
-}
-.member-image-wrapper img {
-  /* fill the wrapper and crop */
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-/* gradient overlay */
-.member-image-wrapper::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 50%;   /* from bottom up to halfway */
-  background: linear-gradient(
-    to top,
-    rgba(30, 30, 30, 0.7) 0%,
-    rgba(30, 30, 30, 0)   100%
-  );
-  pointer-events: none;
-  z-index: 1;
-}
-/* make the img fill that box fully and crop */
-.member-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.member-info {
-  position: relative;
-  z-index: 2;
-  margin-top: -7rem;        /* pull text over the image */
-}
-.member-name {
-  font-family: 'Chicle', cursive;
-  font-size: 2.5rem;
-  color: #fff;
-  font-weight: bold;
-}
-.member-role {
-  font-family: 'Chicle', cursive;
-  color: rgba(255,255,255,0.6);
-  font-size: 1.25rem;
-  margin-top: 0.5rem;
-  marign-bottom: 0.5rem;
-}
-.member-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin-top: 2rem;
-}
-.member-btn {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border: none;
-  font-family: 'Chicle', cursive;
-  font-size: 1.25rem;
-  cursor: pointer;
-}
-.member-btn.consenting {
-  background: #fff;
-  color: #000;
-}
-.member-btn.non-consenting {
-  background: #C42026;
-  color: #fff;
-}
+  /* === Global Reset === */
+  * { margin:0; padding:0; box-sizing:border-box }
+  html, body { height:100%; overflow-x:hidden }
 
-/* Modal overlay */
-.member-modal {
-  display: none;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
-  z-index: 5000;
-}
-.member-modal.active {
-  display: flex;
-}
-.modal-content {
-  position: relative;
-  padding: 2rem;
-  border-radius: 12px;
-  max-width: 90%;
-  max-height: 90%;
-  overflow: auto;
-  text-align: center;
-}
-.member-modal .modal-content {
-  width: 90vw;
-  max-width: 900px;       /* ← hard cap */
-  padding: 2rem;
-  border-radius: 12px;
-  background‐clip: padding‑box;
-  box-sizing: border-box;
-  overflow: auto;         /* scrolls if content really gets tall */
-  /* remove any height, flex or justify-content rules */
-}
-.consenting-bg {
-  background: #fff;
-  color: #000;
-}
-.non-consenting-bg {
-  background: #C42026;
-  color: #fff;
-}
-.modal-close {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: 2rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: inherit;
-}
-.modal-image {
-  width: auto;
-  height: 300px;
-  object-fit: cover;
-  display: block;
-}
-.modal-bio h4 {
-  font-family: 'Chicle', cursive;
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-.modal-bio p {
-  font-family: 'Cal Sans', sans-serif;
-  font-size: 1rem;
-  line-height: 1.6;
-}
-.member-modal .modal-image {
-  display: block;
-  margin: 0 auto;        /* horizontally center */
-  height: 250px;         /* ↑ bump this up a bit */
-  width: auto;
-  object-fit: cover;
-}
-@media (max-width: 700px) {
-  .members-header {
-    font-size: 2.5rem;
+  /* === Navbar === */
+  .navbar {
+    position: fixed; top:0; left:0; right:0;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:1rem 2rem; background:transparent;
+    z-index:1000;
+    transition: background-color .3s ease, backdrop-filter .3s ease;
   }
-</style>
+  .navbar.scrolled {
+    background:rgba(255,255,255,0.8);
+    backdrop-filter:blur(10px);
+  }
+  .logo { height:50px }
+  .logo--dark { display:none }
+  .navbar.scrolled .logo--light { display:none }
+  .navbar.scrolled .logo--dark { display:block }
+  .nav-list { display:flex; gap:1.5rem; list-style:none }
+  .nav-list a {
+    font-family:'Chicle',cursive; font-weight:bold; font-size:1.5rem;
+    color:#fff; text-decoration:none;
+    transition:color .3s;
+  }
+  .navbar.scrolled .nav-list a { color:#1e1e1e }
+  .nav-list a:hover { color:#C42026 }
+
+  .nav-toggle { display:none; /* add mobile toggles if needed */ }
+
+  /* spacer below navbar */
+  .spacer { height:6rem }
+
+  /* === About Card === */
+  .about-us { padding:2rem }
+  .section-title {
+    font-family:'Chicle',cursive; font-size:3rem; color:#fff;
+    text-align:center; margin-bottom:1.5rem;
+  }
+  .about-card { max-width:900px; margin:0 auto; text-align:center }
+  .about-text p {
+    font-family:'Cal Sans',sans-serif; font-size:1rem; line-height:1.6; color:#fff;
+  }
+
+  /* === Members Header === */
+  .members-header {
+    font-family:'Chicle',cursive; font-size:3rem; color:#fff;
+    text-align:center; margin:2rem 0 3rem;
+  }
+  @media (max-width:700px) {
+    .members-header { font-size:2.5rem }
+  }
+
+  /* === Member Section === */
+  .member-section { padding:0 1rem 4rem }
+  .member-container {
+    max-width:600px; margin:0 auto; text-align:center; position:relative;
+  }
+  .member-image-wrapper {
+    position:relative; width:100%; aspect-ratio:3/4;
+    border-radius:12px; overflow:hidden; margin:0 auto 1rem;
+  }
+  .member-image-wrapper img {
+    width:100%; height:100%; object-fit:cover; display:block;
+  }
+  /* gradient overlay just on image */
+  .member-image-wrapper::after {
+    content: ""; position:absolute; bottom:0; left:0; right:0;
+    height:50%; background:linear-gradient(to top,
+      rgba(30,30,30,0.7) 0%, rgba(30,30,30,0) 100%);
+    pointer-events:none;
+  }
+  .member-info {
+    position:relative; z-index:2; margin-top:-6rem;
+  }
+  .member-name {
+    font-family:'Chicle',cursive; font-size:2.5rem; color:#fff; font-weight:bold;
+  }
+  .member-role {
+    font-family:'Chicle',cursive; font-size:1.25rem;
+    color:rgba(255,255,255,0.6); margin-top:.5rem; padding-bottom:.5rem;
+  }
+  .member-buttons {
+    display:flex; justify-content:center; gap:2rem; margin-top:2rem;
+  }
+  .member-btn {
+    width:120px; height:120px; border:none; border-radius:50%;
+    font-family:'Chicle',cursive; font-size:1.25rem; cursor:pointer;
+  }
+  .member-btn.consenting { background:#fff; color:#000 }
+  .member-btn.non-consenting { background:#C42026; color:#fff }
+
+  /* === Modals === */
+  .member-modal {
+    display:none; position:fixed; top:0; left:0; right:0; bottom:0;
+    background:rgba(0,0,0,0.5);
+    justify-content:center; align-items:center; z-index:5000;
+  }
+  .member-modal.active { display:flex }
+  .modal-content {
+    background:#fff; color:#000;
+    border-radius:12px; padding:2rem;
+    max-width:90vw; width:90vw; max-width:900px;
+    box-sizing:border-box; text-align:center;
+  }
+  .non-consenting-bg { background:#C42026; color:#fff }
+  .modal-close {
+    position:absolute; top:1rem; right:1rem;
+    background:none; border:none; font-size:2rem; cursor:pointer;
+    color:inherit;
+  }
+  .modal-bio h4 {
+    font-family:'Chicle',cursive; font-size:2rem; margin-bottom:1rem;
+  }
+  .modal-bio p {
+    font-family:'Cal Sans',sans-serif; font-size:1rem; line-height:1.6;
+  }
+  .modal-image {
+    display:block; margin:1rem auto 0;
+    height:250px; width:auto; object-fit:cover;
+  }
+  </style>
 </head>
 <body>
 
   <!-- NAVBAR -->
   <header class="navbar">
-    <!-- white logo on transparent bg -->
-    <img
-      src="images/boca_logo_white_transparent.png"
-      alt="BOCA Logo (white)"
-      class="logo logo--light"
-    />
-    <!-- black logo on white/blurred bg -->
-    <img
-      src="images/boca_logo_black_transparent.png"
-      alt="BOCA Logo (black)"
-      class="logo logo--dark"
-    />
-
-    <!-- desktop nav -->
+    <img src="images/boca_logo_white_transparent.png" alt="BOCA Logo" class="logo logo--light">
+    <img src="images/boca_logo_black_transparent.png" alt="BOCA Logo" class="logo logo--dark">
     <nav>
       <ul class="nav-list">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="gigs.html">Gig Schedule</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="merch.html">Merch</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Gigs</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Merch</a></li>
+        <li><a href="#">Contact</a></li>
       </ul>
     </nav>
-
-    <!-- mobile hamburger -->
-    <button class="nav-toggle" aria-label="Open menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
   </header>
-  <div class="mobile-menu" aria-hidden="true">
-    <button class="mobile-menu-close" aria-label="Close menu">✕</button>
-    <nav>
-      <ul class="mobile-nav-list">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="gigs.html">Gig Schedule</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="merch.html">Merch</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-
-
-  <!-- spacer to clear fixed navbar -->
-  <div style="height:6rem;" aria-hidden="true"></div>
+  <div class="spacer" aria-hidden="true"></div>
 
   <main class="site-main">
 
     <!-- ABOUT US -->
     <section class="about-us">
-      <h2 class="section-title">BOCA Band of Consenting Adults</h2>
+      <h2 class="section-title">BOCA – Band of Consenting Adults</h2>
       <div class="about-card">
-        <img src="images/band_photo.jpg" alt="Band photo" class="band-photo" />
         <div class="about-text">
-          <p>BOCA is a high-energy cover band based in Southside Hampton Roads, known for powerhouse vocals, ear-grabbing solos, and a setlist that spans decades and genres. Whether it’s a dance-floor classic, a throwback anthem, or a modern hit, BOCA brings every song to life with their own unique spin.
-BOCA is more than just a band — we’re all about connection. With each other, with the music, and most of all, with the crowd. Every show is crafted to get people moving, singing, and feeling like part of something electric. At the end of the day, we’re a family of musicians who love what we do — and we’re here to make sure you’re having just as much fun as we are.</p>
+          <p>BOCA is a high-energy cover band…</p>
         </div>
       </div>
     </section>
+
     <h2 class="members-header">The Consenting Adults</h2>
 
-    <!-- ABOUT PAGE: Vocalist Section -->
-<section class="member-section" id="vocalist">
-  <div class="member-container">
-    <!-- Image wrapper: crops bottom of image flush to container -->
-    <div class="member-image-wrapper">
-      <img
-        src="images/vocals_photo.jpg"
-        alt="Vocalist"
-        class="member-image"
-      />
+    <!-- VOCALIST -->
+    <section class="member-section" id="vocalist">
+      <div class="member-container">
+        <div class="member-image-wrapper">
+          <img src="images/vocals_photo.jpg" alt="Anna Holden" />
+        </div>
+        <div class="member-info">
+          <h3 class="member-name">Anna Holden</h3>
+          <p class="member-role">Vocals</p>
+        </div>
+        <div class="member-buttons">
+          <button
+            class="member-btn consenting"
+            data-modal="modal-consenting-vocalist"
+          >Consenting</button>
+          <button
+            class="member-btn non-consenting"
+            data-modal="modal-non-consenting-vocalist"
+          >Non-Consenting</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- DRUMMER -->
+    <section class="member-section" id="drummer">
+      <div class="member-container">
+        <div class="member-image-wrapper">
+          <img src="images/drummer_photo.jpg" alt="Tyler Holden" />
+        </div>
+        <div class="member-info">
+          <h3 class="member-name">Tyler Holden</h3>
+          <p class="member-role">Drums</p>
+        </div>
+        <div class="member-buttons">
+          <button
+            class="member-btn consenting"
+            data-modal="modal-consenting-drummer"
+          >Consenting</button>
+          <button
+            class="member-btn non-consenting"
+            data-modal="modal-non-consenting-drummer"
+          >Non-Consenting</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- KEYS -->
+    <section class="member-section" id="keys">
+      <div class="member-container">
+        <div class="member-image-wrapper">
+          <img src="images/keys_photo.jpg" alt="Mark Dandridge Jr." />
+        </div>
+        <div class="member-info">
+          <h3 class="member-name">Mark Dandridge Jr.</h3>
+          <p class="member-role">Keys</p>
+        </div>
+        <div class="member-buttons">
+          <button
+            class="member-btn consenting"
+            data-modal="modal-consenting-keys"
+          >Consenting</button>
+          <button
+            class="member-btn non-consenting"
+            data-modal="modal-non-consenting-keys"
+          >Non-Consenting</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- BASS -->
+    <section class="member-section" id="bass">
+      <div class="member-container">
+        <div class="member-image-wrapper">
+          <img src="images/bass_photo.jpg" alt="Sid Bridge" />
+        </div>
+        <div class="member-info">
+          <h3 class="member-name">Sid Bridge</h3>
+          <p class="member-role">Bass</p>
+        </div>
+        <div class="member-buttons">
+          <button
+            class="member-btn consenting"
+            data-modal="modal-consenting-bass"
+          >Consenting</button>
+          <button
+            class="member-btn non-consenting"
+            data-modal="modal-non-consenting-bass"
+          >Non-Consenting</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODALS -->
+    <!-- Anna -->
+    <div id="modal-consenting-vocalist" class="member-modal">
+      <div class="modal-content consenting-bg">
+        <button class="modal-close">&times;</button>
+        <div class="modal-bio">
+          <h4>Anna Holden</h4>
+          <p>Anna's been writing songs since she was five - tucked in a closet with a pencil, a wall, and a lot of feelings. From church solos to karaoke nights, and eventually fronting BOCA, music has always been her way of making sense of the world. These days she brings that same heart to every performance, blending emotion, energy, and just enough grit, Whether she's onstage with the full band or adding her acoustic guitar to a stripped-down set, Anna shows up fully, every time.</p>
+        </div>
+        <img
+          src="images/consenting_anna.png"
+          alt="Anna Consenting"
+          class="modal-image"
+        />
+      </div>
+    </div>
+    <div id="modal-non-consenting-vocalist" class="member-modal">
+      <div class="modal-content non-consenting-bg">
+        <button class="modal-close">&times;</button>
+        <div class="modal-bio">
+          <h4>Swarley</h4>
+          <p>Anna's non-consenting bio…</p>
+        </div>
+        <img
+          src="images/non_consenting_anna.png"
+          alt="Anna Non-Consenting"
+          class="modal-image"
+        />
+      </div>
     </div>
 
-    <!-- Name & role overlay -->
-    <div class="member-info">
-      <h3 class="member-name">Anna Holden</h3>
-      <p class="member-role">Vocals</p>
+    <!-- Tyler -->
+    <div id="modal-consenting-drummer" class="member-modal">
+      <div class="modal-content consenting-bg">
+        <button class="modal-close">&times;</button>
+        <div class="modal-bio">
+          <h4>Tyler Holden</h4>
+          <p>Tyler, referred to as "the Drummer of Passion" by local music connoisseur Alex Best, has been playing drums for 16 years. From concert band, to jazz bands, to steel drum bands, to drumline, Tyler has a wide experience with a variety of genres and styles. Born into a lineage of music lovers, his deep appreciation for music has been a constant his whole life. BOCA has reignited this fervor for music and has given Tyler the opportunity to draw from his wide range of musical tastes and experiences for a fresh take on the music BOCA plays.</p>
+        </div>
+        <img
+          src="images/consenting_tyler.png"
+          alt="Tyler Consenting"
+          class="modal-image"
+        />
+      </div>
+    </div>
+    <div id="modal-non-consenting-drummer" class="member-modal">
+      <div class="modal-content non-consenting-bg">
+        <button class="modal-close">&times;</button>
+        <div class="modal-bio">
+          <h4>Holden</h4>
+          <p>Tyler's non-consenting bio…</p>
+        </div>
+        <img
+          src="images/non_consenting_tyler.png"
+          alt="Tyler Non-Consenting"
+          class="modal-image"
+        />
+      </div>
     </div>
 
-    <!-- Action buttons -->
-    <div class="member-buttons">
-      <button class="member-btn consenting">The Consenting Bio</button>
-      <button class="member-btn non-consenting">The Non‑consenting Bio</button>
+    <!-- Mark -->
+    <div id="modal-consenting-keys" class="member-modal">
+      <div class="modal-content consenting-bg">
+        <button class="modal-close">&times;</button>
+        <div class="modal-bio">
+          <h4>Mark Dandridge Jr.</h4>
+          <p>BOCA's lead keyboardist, Mark, began his musical journey at age 11 in Richmond, VA, when his family said: "You look like Louie Armstrong so you should play the trumpet." For the next 16 years, Mark developed a passion for music and has used that passion to become a "Jack of All Trades" musician. Eventually his passion lead to minoring in Music Performance at ODU right here in the 757. From brass instruments, to guitar, home recording, and now keyboards, Mark takes his passion to the stage with BOCA. Mark is also married to his wife Leigh, whom he met at ODY in the music program. they share a love for music.</p>
+        </div>
+        <img
+          src="images/consenting_mark.png"
+          alt="Mark Consenting"
+          class="modal-image"
+        />
+      </div>
     </div>
-  </div>
-</section>
-
-    <!-- MODAL TEMPLATES -->
-<div class="member-modal" id="modal-consenting">
-  <div class="modal-content consenting-bg">
-    <button class="modal-close">&times;</button>
-    <div class="modal-bio">
-      <h4>Anna Holden</h4>
-      <p>Anna's been writing songs since she was five - tucked in a closet with a pencil, a wall, and a lot of feelings. From church solos to karaoke nights, and eventually fronting BOCA, music has always been her way of making sense of the world. These days she brings that same heart to every performance, blending emotion, energy, and just enough grit, Whether she's onstage with the full band or adding her acoustic guitar to a stripped-down set, Anna shows up fully, every time.</p>
-    </div>
-    <img
-      src="images/consenting_anna.png"
-      alt="Consenting Vocals"
-      class="modal-image"
-    />
-  </div>
-</div>
-
-<div class="member-modal" id="modal-non-consenting">
-  <div class="modal-content non-consenting-bg">
-    <button class="modal-close">&times;</button>
-    <div class="modal-bio">
-      <h4>Swarley Bobody</h4>
-      <p>Swarley Bobody's naughty bio.</p>
-    </div>
-    <img
-      src="images/non_consenting_anna.png"
-      alt="Non‑Consenting Vocals"
-      class="modal-image"
-    />
-  </div>
-</div>
-
-<!-- ABOUT PAGE: Drummer Section -->
-<section class="member-section" id="vocalist">
-  <div class="member-container">
-    <!-- Image wrapper: crops bottom of image flush to container -->
-    <div class="member-image-wrapper">
-      <img
-        src="images/drummer_photo.jpg"
-        alt="Drummer"
-        class="member-image"
-      />
+    <div id="modal-non-consenting-keys" class="member-modal">
+      <div class="modal-content non-consenting-bg">
+        <button class="modal-close">&times;</button>
+        <div class="modal-bio">
+          <h4>Dandridge</h4>
+          <p>Mark's non-consenting bio…</p>
+        </div>
+        <img
+          src="images/non_consenting_mark.png"
+          alt="Mark Non-Consenting"
+          class="modal-image"
+        />
+      </div>
     </div>
 
-    <!-- Name & role overlay -->
-    <div class="member-info">
-      <h3 class="member-name">Tyler Holden</h3>
-      <p class="member-role">Drums</p>
+    <!-- Sid -->
+    <div id="modal-consenting-bass" class="member-modal">
+      <div class="modal-content consenting-bg">
+        <button class="modal-close">&times;</button>
+        <div class="modal-bio">
+          <h4>Sid Bridge</h4>
+          <p>Over the last 30 years, Sid Bridge has played bass for numerous bands in genres including classic rock, blues, country, folk, and alternative. Sid's influences include Duck Dunn, Bootsy Collins, John Paul Jones, and Geddy Lee. No stranger to the stage, Sid has carved out a following in southeastern Virginia as a stand-up comic. A co-founded of Geek Night Comedy, Sid has performed on numerous occasions at the Virginia Beach Funny Bone, and at Cozzy's, where he has headlined and serves as emcee for open mic shows.</p>
+        </div>
+        <img
+          src="images/consenting_sid.png"
+          alt="Sid Consenting"
+          class="modal-image"
+        />
+      </div>
     </div>
-
-    <!-- Action buttons -->
-    <div class="member-buttons">
-      <button class="member-btn consenting">The Consenting Bio</button>
-      <button class="member-btn non-consenting">The Non‑consenting Bio</button>
+    <div id="modal-non-consenting-bass" class="member-modal">
+      <div class="modal-content non-consenting-bg">
+        <button class="modal-close">&times;</button>
+        <div class="modal-bio">
+          <h4>Sidster</h4>
+          <p>Sid's non-consenting bio…</p>
+        </div>
+        <img
+          src="images/non_consenting_sid.png"
+          alt="Sid Non-Consenting"
+          class="modal-image"
+        />
+      </div>
     </div>
-  </div>
-</section>
-
-    <!-- MODAL TEMPLATES -->
-<div class="member-modal" id="modal-consenting">
-  <div class="modal-content consenting-bg">
-    <button class="modal-close">&times;</button>
-    <div class="modal-bio">
-      <h4>Tyler Holden</h4>
-      <p>Tyler, referred to as "the Drummer of Passion" by local music connoisseur Alex Best, has been playing drums for 16 years. From concert band, to jazz bands, to steel drum bands, to drumline, Tyler has a wide experience with a variety of genres and styles. Born into a lineage of music lovers, his deep appreciation for music has been a constant his whole life. BOCA has reignited this fervor for music and has given Tyler the opportunity to draw from his wide range of musical tastes and experiences for a fresh take on the music BOCA plays.</p>
-    </div>
-    <img
-      src="images/consenting_tyler.png"
-      alt="Consenting Drums"
-      class="modal-image"
-    />
-  </div>
-</div>
-
-<div class="member-modal" id="modal-non-consenting">
-  <div class="modal-content non-consenting-bg">
-    <button class="modal-close">&times;</button>
-    <div class="modal-bio">
-      <h4>Holden</h4>
-      <p>Holden's naughty bio.</p>
-    </div>
-    <img
-      src="images/non_consenting_holden.png"
-      alt="Non‑Consenting Drums"
-      class="modal-image"
-    />
-  </div>
-</div>
-
-  <!-- ABOUT PAGE: Keyboard Section -->
-<section class="member-section" id="keys">
-  <div class="member-container">
-    <!-- Image wrapper: crops bottom of image flush to container -->
-    <div class="member-image-wrapper">
-      <img
-        src="images/keys_photo.jpg"
-        alt="Keys"
-        class="member-image"
-      />
-    </div>
-
-    <!-- Name & role overlay -->
-    <div class="member-info">
-      <h3 class="member-name">Mark Dandridge Jr.</h3>
-      <p class="member-role">Keys</p>
-    </div>
-
-    <!-- Action buttons -->
-    <div class="member-buttons">
-      <button class="member-btn consenting">The Consenting Bio</button>
-      <button class="member-btn non-consenting">The Non‑consenting Bio</button>
-    </div>
-  </div>
-</section>
-
-    <!-- MODAL TEMPLATES -->
-<div class="member-modal" id="modal-consenting">
-  <div class="modal-content consenting-bg">
-    <button class="modal-close">&times;</button>
-    <div class="modal-bio">
-      <h4>Mark Dandridge Jr.</h4>
-      <p>BOCA's lead keyboardist, Mark, began his musical journey at age 11 in Richmond, VA, when his family said: "You look like Louie Armstrong so you should play the trumpet." For the next 16 years, Mark developed a passion for music and has used that passion to become a "Jack of All Trades" musician. Eventually his passion lead to minoring in Music Performance at ODU right here in the 757. From brass instruments, to guitar, home recording, and now keyboards, Mark takes his passion to the stage with BOCA. Mark is also married to his wife Leigh, whom he met at ODY in the music program. they share a love for music.</p>
-    </div>
-    <img
-      src="images/consenting_mark.png"
-      alt="Consenting Keys"
-      class="modal-image"
-    />
-  </div>
-</div>
-
-<div class="member-modal" id="modal-non-consenting">
-  <div class="modal-content non-consenting-bg">
-    <button class="modal-close">&times;</button>
-    <div class="modal-bio">
-      <h4>Dandridge</h4>
-      <p>Dandridge's naughty bio.</p>
-    </div>
-    <img
-      src="images/non_consenting_mark.png"
-      alt="Non‑Consenting Keys"
-      class="modal-image"
-    />
-  </div>
-</div>
-
-    <!-- ABOUT PAGE: Bass Player Section -->
-<section class="member-section" id="bass-player">
-  <div class="member-container">
-    <!-- Image wrapper: crops bottom of image flush to container -->
-    <div class="member-image-wrapper">
-      <img
-        src="images/bass_photo.jpg"
-        alt="Bass Player"
-        class="member-image"
-      />
-    </div>
-
-    <!-- Name & role overlay -->
-    <div class="member-info">
-      <h3 class="member-name">Sid Bridge</h3>
-      <p class="member-role">Bass</p>
-    </div>
-
-    <!-- Action buttons -->
-    <div class="member-buttons">
-      <button class="member-btn consenting">The Consenting Bio</button>
-      <button class="member-btn non-consenting">The Non‑consenting Bio</button>
-    </div>
-  </div>
-</section>
-
-    <!-- MODAL TEMPLATES -->
-<div class="member-modal" id="modal-consenting">
-  <div class="modal-content consenting-bg">
-    <button class="modal-close">&times;</button>
-    <div class="modal-bio">
-      <h4>Sid Bridge</h4>
-      <p>Over the last 30 years, Sid Bridge has played bass for numerous bands in genres including classic rock, blues, country, folk, and alternative. Sid's influences include Duck Dunn, Bootsy Collins, John Paul Jones, and Geddy Lee. No stranger to the stage, Sid has carved out a following in southeastern Virginia as a stand-up comic. A co-founded of Geek Night Comedy, Sid has performed on numerous occasions at the Virginia Beach Funny Bone, and at Cozzy's, where he has headlined and serves as emcee for open mic shows.</p>
-    </div>
-    <img
-      src="images/consenting_sid.png"
-      alt="Consenting Bass Player"
-      class="modal-image"
-    />
-  </div>
-</div>
-
-<div class="member-modal" id="modal-non-consenting">
-  <div class="modal-content non-consenting-bg">
-    <button class="modal-close">&times;</button>
-    <div class="modal-bio">
-      <h4>Sidster</h4>
-      <p>Sidster is a naughty boy.</p>
-    </div>
-    <img
-      src="images/non_consenting_sid.png"
-      alt="Non‑Consenting Bass Player"
-      class="modal-image"
-    />
-  </div>
-</div>
 
   </main>
 
-  <!-- SOCIAL FOOTER -->
+  <!-- FOOTER -->
   <footer class="social-footer">
     <ul class="social-list">
-      <li>
-        <a href="https://www.facebook.com/thebocaband/" target="_blank" rel="noopener">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-      </li>
-      <li>
-        <a href="https://www.instagram.com/thebocaband/" target="_blank" rel="noopener">
-          <i class="fab fa-instagram"></i>
-        </a>
-      </li>
-      <li>
-        <a href="https://open.spotify.com/artist/1BYwhFnFgPLS3kUa2FOoZ6" target="_blank" rel="noopener">
-          <i class="fab fa-spotify"></i>
-        </a>
-      </li>
-      <li>
-        <a href="https://www.youtube.com/@thebocaband7885" target="_blank" rel="noopener">
-          <i class="fab fa-youtube"></i>
-        </a>
-      </li>
+      <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+      <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+      <li><a href="#"><i class="fab fa-spotify"></i></a></li>
+      <li><a href="#"><i class="fab fa-youtube"></i></a></li>
     </ul>
   </footer>
 
-  <!-- NAV + MOBILE TOGGLE SCRIPTS -->
-   <script>
-    // blur navbar on scroll
+  <script>
+    // navbar blur
     const nav = document.querySelector('.navbar');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 0);
-    });
+    window.addEventListener('scroll', () =>
+      nav.classList.toggle('scrolled', window.scrollY > 0)
+    );
 
     // mobile menu open/close
     const toggle = document.querySelector('.nav-toggle');
@@ -554,21 +426,19 @@ BOCA is more than just a band — we’re all about connection. With each other,
       mobileMenu.setAttribute('aria-hidden', 'true');
       mobileMenu.classList.remove('open');
     });
+
+    // modal open/close
+    document.querySelectorAll('.member-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.modal;
+        document.getElementById(id).classList.add('active');
+      });
+    });
+    document.querySelectorAll('.modal-close').forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.closest('.member-modal').classList.remove('active');
+      });
+    });
   </script>
-
-  <script>
-  document.querySelectorAll('.member-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const key = btn.classList.contains('consenting') ? 'consenting' : 'non-consenting';
-      document.getElementById(`modal-${key}`).classList.add('active');
-    });
-  });
-
-  document.querySelectorAll('.modal-close').forEach(btn => {
-    btn.addEventListener('click', () => {
-      btn.closest('.member-modal').classList.remove('active');
-    });
-  });
-</script>
 </body>
 </html>
