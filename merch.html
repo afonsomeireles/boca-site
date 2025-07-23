@@ -112,6 +112,13 @@
       margin: 1rem 0;
       text-align: left;
     }
+    .form-row--half-group {
+  display: flex;
+  gap: 1rem;
+}
+    .form-row--half-group .form-field {
+  flex: 1;
+}
     .form-row label {
       display: block;
       font-family: 'Cal Sans', sans-serif;
@@ -255,34 +262,29 @@
           required
         />
       </div>
-      <div class="form-row">
-        <label for="resPhone">Phone</label>
-        <input
-          type="tel"
-          id="resPhone"
-          name="Phone"
-          placeholder="(123) 456‑7890"
-        />
-      </div>
-
-      <!-- Size selector -->
-      <div class="form-row">
-        <label for="sizeSelect">Size</label>
-        <select id="sizeSelect" name="size" required>
-          <option value="" disabled selected>Choose a size…</option>
-          <option value="S">Small</option>
-          <option value="M">Medium</option>
-          <option value="L">Large</option>
-          <option value="XL">XL</option>
-        </select>
-      </div>
+     <div class="form-row form-row--half-group">
+    <div class="form-field">
+      <label for="phone">Phone</label>
+      <input type="tel" id="phone" name="Phone" placeholder="(123) 456‑7890" />
+    </div>
+    <div class="form-field">
+      <label for="sizeSelect">Size</label>
+      <select id="sizeSelect" name="Size">
+        <option value="">Choose a size…</option>
+        <option value="S">Small</option>
+        <option value="M">Medium</option>
+        <option value="L">Large</option>
+        <option value="XL">XL</option>
+      </select>
+    </div>
+  </div>
 
       <!-- Custom message -->
       <div class="form-row">
         <label for="visitMsg">
           Tell us where you plan to see us and we’ll bring it for you!
         </label>
-        <textarea id="visitMsg" name="Message" rows="3"></textarea>
+        <textarea id="visitMsg" name="Message" rows="2"></textarea>
       </div>
 
       <!-- Submit -->
