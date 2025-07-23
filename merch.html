@@ -114,10 +114,17 @@
     }
     .form-row--half-group {
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
 }
     .form-row--half-group .form-field {
-  flex: 1;
+  flex: 1 1 0;
+  min-width: 0
+}
+    /* ensure your inputs/selects fill their wrapper */
+.form-row--half-group .form-field input,
+.form-row--half-group .form-field select {
+  width: 100%;
+  box-sizing: border-box;
 }
     .form-row label {
       display: block;
