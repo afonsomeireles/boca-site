@@ -17,182 +17,176 @@
   <!-- Main stylesheet -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- Merch page styles -->
   <style>
-    .merch-section {
-      width: 100%; max-width: 900px;
-      margin: 0 auto 4rem;
-      padding: 0 2rem;
-      text-align: center;
-    }
-    .merch-section h2 {
-      font-family: 'Chicle', cursive;
-      font-size: 3rem;
-      color: #fff;
-      margin-bottom: 2rem;
-    }
+  /* ─── MERCH GRID ───────────────────────────────────────────────── */
+  .merch-section {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 4rem;
+    padding: 0 2rem;
+    text-align: center;
+  }
+  .merch-section h2 {
+    font-family: 'Chicle', cursive;
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 2rem;
+  }
+  .merch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+  .merch-item {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .merch-item:hover {
+    background: #C42026;
+  }
+  .merch-item img {
+    width: auto;
+    height: 250px;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+  .item-name,
+  .item-price {
+    font-family: 'Chicle', cursive;
+    color: #1e1e1e;
+    margin-top: 0.75rem;
+  }
+  .item-name { font-size: 1.75rem; }
+  .item-price {
+    font-family: 'Cal Sans', sans-serif;
+    font-weight: 700;
+  }
+  .merch-item:hover .item-name,
+  .merch-item:hover .item-price {
+    color: #fff;
+  }
+
+  /* ─── MODAL & FORM ────────────────────────────────────────────── */
+  .modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 3000;
+  }
+  .modal {
+    background: #fff;
+    border-radius: 12px;
+    padding: 2rem;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    font-family: 'Cal Sans', sans-serif;
+  }
+  .modal img {
+    max-width: 90%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+  .modal h3 {
+    font-family: 'Chicle', cursive;
+    font-size: 1.75rem;
+    margin: 0.5rem 0;
+  }
+  .modal p {
+    margin: 0.5rem 0;
+  }
+  .close-btn {
+    position: absolute;
+    top: 0.5rem; right: 0.5rem;
+    border: none;
+    background: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+  }
+
+  /* ─── FORM ROWS ──────────────────────────────────────────────── */
+  .form-row {
+    margin: 1rem 0;
+    text-align: left;
+  }
+  .form-row label {
+    display: block;
+    font-family: 'Cal Sans', sans-serif;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  .form-row textarea,
+  .form-row select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    font-family: 'Cal Sans', sans-serif;
+  }
+
+  /* ─── HALF‑GROUP (PHONE + SIZE) ───────────────────────────────── */
+  .form-row.form-row--half-group {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+  }
+  .form-row.form-row--half-group .form-field {
+    /* no grow, size to contents */
+    flex: 0 0 auto;
+    min-width: 0;
+  }
+  .form-row.form-row--half-group .form-field input,
+  .form-row.form-row--half-group .form-field select {
+    /* intrinsic sizing with bounds */
+    width: auto;
+    min-width: 6ch;      /* at least 6 characters */
+    max-width: 12ch;     /* no wider than 12 characters */
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    font-family: 'Cal Sans', sans-serif;
+    box-sizing: content-box; /* so ch units ignore padding */
+  }
+
+  /* ─── MOBILE ADJUSTMENTS ─────────────────────────────────────── */
+  @media (max-width: 600px) {
     .merch-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: 1fr;
     }
-    .merch-item {
-      background: #fff;
-      border-radius: 12px;
-      padding: 1rem;
-      cursor: pointer;
-      transition: background 0.3s ease;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    /* shrink fonts & buttons a bit */
+    .modal input,
+    .modal select,
+    .modal textarea {
+      font-size: 0.9rem;
+      line-height: 1.2;
     }
-    .merch-item:hover {
-      background: #C42026;
+    .modal label {
+      font-size: 0.9rem;
     }
-    .merch-item img {
-      width: auto;
-      height: 250px;            /* uniform image height */
-      object-fit: contain;      /* preserve aspect ratio */
-      border-radius: 8px;
+    .btn-send {
+      font-size: 0.9rem;
+      padding: 0.6rem 1.2rem;
     }
-    .item-name,
-    .item-price {
-      font-family: 'Chicle', cursive;  /* use Chicle for names */
-      color: #1e1e1e;
-      margin-top: 0.75rem;
-    }
-    .item-name {
-      font-size: 1.75rem;
-    }
-    .item-price {
-      font-weight: 700;
-      font-family: 'Cal Sans', sans-serif; /* price in Cal Sans bold */
-    }
-    .merch-item:hover .item-name,
-    .merch-item:hover .item-price {
-      color: #fff;
-    }
-    /* modal overlay */
-    .modal-overlay {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      background: rgba(0,0,0,0.8);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 3000;
-    }
-    .modal {
-      background: #fff;
-      border-radius: 12px;
-      padding: 2rem;
-      max-width: 400px;
-      width: 90%;
-      text-align: center;
-      position: relative;
-      font-family: 'Cal Sans', sans-serif;
-    }
-    .modal img {
-      max-width: 90%; height: auto;
-      border-radius: 8px;
-      margin-bottom: 0rem;
-    }
-    .modal h3 {
-      font-family: 'Chicle', cursive;
-      font-size: 1.75rem;
-      margin: 0.5rem 0;
-    }
-    .modal p {
-      margin: 0.5rem 0;
-    }
-    .form-row {
-      margin: 1rem 0;
-      text-align: left;
-    }
-    .form-row label {
-      display: block;
-      font-family: 'Cal Sans', sans-serif;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      color: #333;
-    }
-    .form-row select,
-    .form-row textarea {
-      width: 100%;
-      padding: 0.5rem;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      outline: none;
-      font-family: 'Cal Sans', sans-serif;
-    }
-    .close-btn {
-      position: absolute;
-      top: 0.5rem; right: 0.5rem;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: #333;
-    }
-    @media (max-width: 600px) {
-      .merch-grid { grid-template-columns: 1fr; }
-    }
-    .form-row.form-row--half-group {
-  display: flex !important;
-  flex-wrap: nowrap !important;
-  gap:       0.5rem !important;
-}
-
-.form-row.form-row--half-group .form-field {
-  flex:      0 0 calc(50% - 0.25rem) !important;
-  min-width: 0 !important;
-}
-
-.form-row.form-row--half-group .form-field input,
-.form-row.form-row--half-group .form-field select {
-  width:       100% !important;
-  box-sizing:  border-box !important;
-  max-width:   none !important;
-}
-.modal .form-row.form-row--half-group {
-  display:       flex !important;
-  flex-wrap:     nowrap !important;
-  align-items:   flex-start !important;
-  gap:           0.5rem !important;
-}
-
-.modal .form-row.form-row--half-group > .form-field {
-  flex:       1 1 0 !important;
-  min-width:  0 !important;
-}
-
-.modal .form-row.form-row--half-group
-      > .form-field input,
-.modal .form-row.form-row--half-group
-      > .form-field select {
-  width:        100% !important;
-  box-sizing:   border-box !important;
-  max-width:    none !important;
-}
-    @media (max-width: 600px) {
-      .modal input,
-      .modal select,
-      .modal textarea {
-        font-size: 0.9rem;
-        line-height: 1;
-      }
-      .modal .form-row label {
-        font-size: 0.9 rem;
-      }
-      .modal .btn-send {
-        font-size: 0.9rem;
-        padding: 0.6rem 1.2rem;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
   <!-- NAVBAR & MOBILE MENU (same as other pages) -->
