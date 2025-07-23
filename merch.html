@@ -150,22 +150,18 @@
     gap: 0.5rem;
   }
   .form-row.form-row--half-group .form-field {
-    /* no grow, size to contents */
-    flex: 1 1 50%;
+    flex: 1;
     min-width: 0;
   }
   .form-row.form-row--half-group .form-field input,
   .form-row.form-row--half-group .form-field select {
-    /* intrinsic sizing with bounds */
     width: 100%;
-    min-width: 6ch;      /* at least 6 characters */
-    max-width: 12ch;     /* no wider than 12 characters */
     padding: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 6px;
     outline: none;
     font-family: 'Cal Sans', sans-serif;
-    box-sizing: content-box; /* so ch units ignore padding */
+    box-sizing: border-box;
   }
 
   /* ─── MOBILE ADJUSTMENTS ─────────────────────────────────────── */
