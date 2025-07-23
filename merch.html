@@ -112,22 +112,6 @@
       margin: 1rem 0;
       text-align: left;
     }
-    .form-row--half-group {
-  display: flex !important;
-  gap: 0.5rem;       /* your gap between fields */
-  flex-wrap: nowrap !important; /* never stack */
-}
-    .form-row--half-group .form-field {
-  flex: 0 0 calc(50% - 0.25rem) !important;
-  min-width: 0;      /* prevent overflow */
-}
-    /* ensure your inputs/selects fill their wrapper */
-.form-row--half-group .form-field input,
-.form-row--half-group .form-field select {
-  width: 100%;
-  max-width: none;
-  box-sizing: border-box;
-}
     .form-row label {
       display: block;
       font-family: 'Cal Sans', sans-serif;
@@ -156,6 +140,22 @@
     @media (max-width: 600px) {
       .merch-grid { grid-template-columns: 1fr; }
     }
+    .form-row--half-group {
+  display: flex !important;
+  gap: 0.5rem;       /* your gap between fields */
+  flex-wrap: nowrap !important; /* never stack */
+}
+    .form-row--half-group .form-field {
+  flex: 0 0 calc(50% - 0.25rem) !important;
+  min-width: 0;      /* prevent overflow */
+}
+    /* ensure your inputs/selects fill their wrapper */
+.form-row--half-group .form-field input,
+.form-row--half-group .form-field select {
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
+}
   </style>
 </head>
 <body>
