@@ -222,6 +222,12 @@
   <!-- ─── Hidden FormSubmit fields ─── -->
   <input type="hidden" name="_captcha"   value="false">
   <input type="hidden" name="_subject"   value="New merch reservation">
+  <input
+  type="hidden"
+  name="_subject"
+  id="reserveSubject"
+  value="New merch reservation"
+/>
   <input type="hidden" name="_next"      value="https://thebocaband.com/thankyou.html">
   <input type="hidden" name="_honeypot"  value="bot-field">
 
@@ -349,6 +355,8 @@
         modalImg.alt = item.dataset.name;
         modalName.textContent = item.dataset.name;
         modalPrice.textContent = item.dataset.price;
+        reserveSubject.value = 
+      `New merch reservation: ${item.dataset.name}`;
         modalOverlay.style.display = 'flex';
       });
     });
