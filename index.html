@@ -266,31 +266,47 @@ BOCA is more than just a band — we’re all about connection. With each other,
 
       //Gallery
   (async function(){
-      const track = document.getElementById('galleryTrack');
-      const prev = document.getElementById('prevBtn');
-      const next = document.getElementById('nextBtn');
-      let index = 0;
-      // fetch image names
-      const data = await fetch('https://api.github.com/repos/afonsomeireles/boca-site/contents/gallery')
-        .then(r=>r.json());
-      const files = data.filter(f => /\.(jpe?g|png|gif|webp)$/i.test(f.name)).map(f=>f.name);
-      files.forEach((name,i)=>{
-        const div=document.createElement('div'); div.className='gallery-item';
-        div.id=`slide${i}`;
-        div.innerHTML=`<img src="/gallery/${name}" alt="${name}">`;
-        track.appendChild(div);
-      });
-      const items = [...track.children];
-      function updateActive(){
-        items.forEach((el,i)=> el.classList.toggle('active', i===index));
-        const scrollTo = items[index].offsetLeft - (track.clientWidth - items[index].clientWidth)/2;
-        track.scrollTo({ left: scrollTo, behavior:'smooth' });
-      }
-      prev.onclick=()=>{ index=(index-1+items.length)%items.length; updateActive(); };
-      next.onclick=()=>{ index=(index+1)%items.length; updateActive(); };
-      // init
-      updateActive();
-    })();
+    const track = document.getElementById('galleryTrack');
+    const prev  = document.getElementById('prevBtn');
+    const next  = document.getElementById('nextBtn');
+    let index   = 0;
+
+    // fetch & build slides…
+    const data = await fetch('https://api.github.com/repos/afonsomeireles/boca-site/contents/gallery')
+      .then(r=>r.json());
+    const files = data.filter(f => /\.(jpe?g|png|gif|webp)$/i.test(f.name)).map(f=>f.name);
+    files.forEach((name,i)=>{
+      const div = document.createElement('div');
+      div.className = 'gallery-item';
+      div.id = `slide${i}`;
+      div.innerHTML = `<img src="/gallery/${name}" alt="${name}">`;
+      track.appendChild(div);
+    });
+
+    const items = [...track.children];
+    function updateActive(){
+      items.forEach((el,i)=> el.classList.toggle('active', i===index));
+      const scrollTo = items[index].offsetLeft 
+                       - (track.clientWidth - items[index].clientWidth)/2;
+      track.scrollTo({ left: scrollTo, behavior:'smooth' });
+    }
+
+    prev.onclick = ()=> { index = (index-1 + items.length) % items.length; updateActive(); };
+    next.onclick = ()=> { index = (index+1) % items.length; updateActive(); };
+
+    // init
+    updateActive();
+
+    // ---- AUTO‑SLIDE LOGIC ----
+    const INTERVAL_MS = 5000; // 5 seconds
+    let autoSlide = setInterval(() => next.onclick(), INTERVAL_MS);
+
+    // optional: pause on hover (desktop)
+    track.addEventListener('mouseenter', () => clearInterval(autoSlide));
+    track.addEventListener('mouseleave', () => {
+      autoSlide = setInterval(() => next.onclick(), INTERVAL_MS);
+    });
+  })();
   </script>
 
 </body>
