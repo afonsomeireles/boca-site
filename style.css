@@ -152,6 +152,14 @@ body::before {
   display: none;
 }
 
+.logo-link {
+  display: inline-block;
+  text-decoration: none;
+}
+.logo-link img {
+  vertical-align: middle;
+}
+
 /* once the navbar is scrolled… */
 .navbar.scrolled .logo--light {
   display: none;   /* hide white logo */
