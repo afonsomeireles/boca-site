@@ -1,5 +1,55 @@
 [
   {
+    "date": "2026-08-21",
+    "venue": "Blue Pete's",
+    "time": "6 PM - 9 PM"
+  },
+  {
+    "date": "2026-08-08",
+    "venue": "Paradise Ocean Club",
+    "time": "3 PM - 7 PM"
+  },
+  {
+    "date": "2026-06-13",
+    "venue": "Clubhouse Bar & Grill",
+    "time": "6 PM – 10 PM"
+  },
+  {
+    "date": "2026-06-12",
+    "venue": "31st Street Stage",
+    "time": "7 PM - 11 PM"
+  },
+  {
+    "date": "2026-06-06",
+    "venue": "Paradise Ocean Club",
+    "time": "3 PM - 7 PM"
+  },
+  {
+    "date": "2026-05-24",
+    "venue": "Blue Pete's",
+    "time": "5 PM - 8 PM"
+  },
+  {
+    "date": "2026-05-23",
+    "venue": "Indian Cove",
+    "time": "7:30 PM - 10:45 PM"
+  },
+  {
+    "date": "2026-05-08",
+    "venue": "Hoss's Deli",
+    "time": "8 PM – 12 AM"
+  },
+  {
+    "date": "2026-05-01",
+    "venue": "Voodoo Brewing",
+    "time": "7:30 PM – 10:30 PM"
+  },
+  {
+    "date": "2026-04-11",
+    "venue": "Clubhouse Bar & Grill",
+    "time": "6 PM – 10 PM"
+  },
+  {
     "date": "2026-02-21",
     "venue": "Froggie's",
     "time": "8 PM – 12 AM"
